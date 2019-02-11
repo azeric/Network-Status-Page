@@ -1,8 +1,7 @@
 <?php
 include("assets/php/functions.php");
 $image_url = $_GET['img'];
-$network = getNetwork();
-$plexAddress = $network.':'.$plex_port;
+$plexAddress = $plex_server_ip;
 $addressPosition = strpos($image_url, $plexAddress);
 if($addressPosition !== false && $addressPosition == 0) {
 	$image_src = $image_url . '?X-Plex-Token=' . getPlexToken();
