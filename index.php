@@ -154,7 +154,7 @@
 				$plex_check_refresh.load('assets/php/plex_check_ajax.php');
 				$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
 				//$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
-				$ping_refresh.load("assets/php/ping_ajax.php");
+				//$ping_refresh.load("assets/php/ping_ajax.php");
 				$services_refresh.load("assets/php/services_ajax.php");
 				$system_load_refresh.load("assets/php/system_load_ajax.php");
 				$disk_space_refresh.load("assets/php/disk_space_ajax.php");
