@@ -4,6 +4,11 @@
 	include("functions.php");
 	include("service.class.php");
 	include("serviceSAB.class.php");
+
+	$config = parse_ini_file($config_path, true);
+
+	$wan_domain = $config['network']['wan_domain'];
+	$plex_server_ip = $config['network']['plex_server_ip'];
 ?>
 <html lang="en">
 	<script>
@@ -23,10 +28,10 @@ else:
 endif;
 
 $services = array(
-	new service("Plex", 32400, "http://coruscant:32400/web/index.html#!/dashboard"),
+	new service("Plex", 443, $plex_server_ip."/web/index.html#!/dashboard"),
 	#new service("pfSense", 80, "http://192.168.1.1", "192.168.1.1"),
-	new serviceSAB($sabTitle, 8080, "http://coruscant:8080", "127.0.0.1:8080"),
-	new service("SickBeard", 8081, "http://coruscant:8085"),
+	//new serviceSAB($sabTitle, 8080, "http://coruscant:8080", "127.0.0.1:8080"),
+	//new service("SickBeard", 8081, "http://coruscant:8085"),
 	#new service("CouchPotato", 5050, "http://dashbad.com:5050"),
 	#new service("Transmission", 9091, "http://d4rk.co:9091"),
 	#new service("Subsonic",4040, "http://dashbad.com:4040")
