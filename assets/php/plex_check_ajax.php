@@ -3,7 +3,7 @@
 	Ini_Set( 'display_errors', true );
 	include("functions.php");
 
-	$plexSessionXML = simplexml_load_file($plex_server_ip.'/status/sessions');
+	$plexSessionXML = simplexml_load_file($plex_server_ip.'/status/sessions?X-Plex-Token='.$plexToken);
 	$plexcheckfile1 = '../misc/plexcheckfile1.txt';
 	$plexcheckfile2 = '../misc/plexcheckfile2.txt';
 	$plexcheckfile1_md5 = md5_file($plexcheckfile1);
