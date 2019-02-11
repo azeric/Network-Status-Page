@@ -18,21 +18,21 @@
 	        });
 	</script>
 <?php 
-$sabnzbdXML = simplexml_load_file('http://192.168.1.3:8080/api?mode=qstatus&output=xml&apikey='.$sabnzbd_api);
+// $sabnzbdXML = simplexml_load_file('http://192.168.1.3:8080/api?mode=qstatus&output=xml&apikey='.$sabnzbd_api);
 
-if (($sabnzbdXML->state) == 'Downloading'):
-	$timeleft = $sabnzbdXML->timeleft;
-	$sabTitle = 'SABnzbd ('.$timeleft.')';
-else:
-	$sabTitle = 'SABnzbd';
-endif;
+// if (($sabnzbdXML->state) == 'Downloading'):
+// 	$timeleft = $sabnzbdXML->timeleft;
+// 	$sabTitle = 'SABnzbd ('.$timeleft.')';
+// else:
+// 	$sabTitle = 'SABnzbd';
+// endif;
 
 $services = array(
-	new service("Plex", 443, $plex_server_ip."/web/index.html#!/dashboard"),
+	new service("Plex", $plex_server_ip."/web/index.html#!/dashboard"),
 	#new service("pfSense", 80, "http://192.168.1.1", "192.168.1.1"),
 	//new serviceSAB($sabTitle, 8080, "http://coruscant:8080", "127.0.0.1:8080"),
 	//new service("SickBeard", 8081, "http://coruscant:8085"),
-	#new service("CouchPotato", 5050, "http://dashbad.com:5050"),
+	new service("NextCloud", "https://cloud.01tools.com"),
 	#new service("Transmission", 9091, "http://d4rk.co:9091"),
 	#new service("Subsonic",4040, "http://dashbad.com:4040")
 	
