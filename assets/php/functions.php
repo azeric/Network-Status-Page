@@ -373,7 +373,7 @@ function makeRecenlyReleased()
 	$mediaKey = $plexNewestXML->Video[0]['key'];
 	$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
 	$movieTitle = $mediaXML->Video['title'];
-	$movieArt = $mediaXML->Video['thumb'];
+	$movieArt = $mediaXML->Video['parentThumb'];
 	echo '<img src="plex.php?img='.urlencode($plex_server_ip.$movieArt) . '" alt="...">';
 	echo '</div>'; // Close item div
 	$i=1;
@@ -385,7 +385,7 @@ function makeRecenlyReleased()
 		$movieArt = $mediaXML->Video['parentThumb'];
 		$movieYear = $mediaXML->Video['year'];
 		echo '<div class="item">';
-		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'" alt="...">';
+		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt.'?X-Plex-Token='.$plexToken).'" alt="...">';
 		//echo '<img src="'.$network.':'.$plex_port.$movieArt.'?X-Plex-Token='.$plexToken.'" alt="...">';
 		echo '<div class="carousel-caption">';
 		echo '<h3>'.$movieTitle.$movieYear.'</h3>';
