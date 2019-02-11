@@ -19,14 +19,8 @@ class service
 	
 	function check_port()
 	{
-		$conn = @fsockopen($this->host, $this->port, $errno, $errstr, 0.5);
-		if ($conn) 
-		{
-			fclose($conn);
-			return true;
-		}
-		else
-			return false;
+		if (!$fp = curl_init($this->url)) return false;
+		return true;
 	}
 	
 	function makeButton()
@@ -39,5 +33,6 @@ class service
 		
 		return $prefix . $icon . " " . $txt . $suffix;
 	}
+
 }
 ?>

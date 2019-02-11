@@ -102,7 +102,7 @@
 		            			$('#services').show();
 						$('#system_load').show();
 						$('#disk_space').show();
-						$('#zfs').show();
+						//$('#zfs').show();
 						$('#now_playing_title').show();
 						$('#now_playing').show();
 						$('#system_ram').show();
@@ -110,12 +110,12 @@
 		            		},
 				            complete: function() {
 				            	$('#left_column_top').show();
-				            	$('#bandwidth').show();
-				            	$('#ping').show();
+				            	//$('#bandwidth').show();
+				            	//$('#ping').show();
 				            	$('#services').show();
 						$('#system_load').show();
 						$('#disk_space').show();
-						$('#zfs').show();
+						//$('#zfs').show();
 						$('#now_playing_title').show();
 						$('#now_playing').show();
 						$('#system_ram').show();
@@ -123,12 +123,12 @@
 				            },
 				            success: function() {
 				            	$('#left_column_top').show();
-				            	$('#bandwidth').show();
-				            	$('#ping').show();
+				            	//$('#bandwidth').show();
+				            	//$('#ping').show();
 				            	$('#services').show();
 						$('#system_load').show();
 						$('#disk_space').show();
-						$('#zfs').show();
+						//$('#zfs').show();
 						$('#now_playing_title').show();
 						$('#now_playing').show();
 						$('#system_ram').show();
@@ -142,27 +142,27 @@
 				var $bandwidth_refresh = $('#bandwidth');
 				var $ping_refresh = $('#ping');
 				var $services_refresh = $('#services');
-			        	var $system_load_refresh = $('#system_load');
-			        	var $disk_space_refresh = $('#disk_space');
-			        	var $zfs_refresh = $('#zfs');
-			        	var $now_playing_title_refresh = $('#now_playing_title');
-			        	var $now_playing_refresh = $('#now_playing');
-			        	var $system_ram_refresh = $('#system_ram');
-			        	var $plex_movie_stats_refresh = $('#plex_movie_stats');
+				var $system_load_refresh = $('#system_load');
+				var $disk_space_refresh = $('#disk_space');
+				var $zfs_refresh = $('#zfs');
+				var $now_playing_title_refresh = $('#now_playing_title');
+				var $now_playing_refresh = $('#now_playing');
+				var $system_ram_refresh = $('#system_ram');
+				var $plex_movie_stats_refresh = $('#plex_movie_stats');
 
-			        	// Load external php files & assign variables
-			        	$plex_check_refresh.load('assets/php/plex_check_ajax.php');
-			        	$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
-			        	$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
-			        	$ping_refresh.load("assets/php/ping_ajax.php");
-			        	$services_refresh.load("assets/php/services_ajax.php");
-			        	$system_load_refresh.load("assets/php/system_load_ajax.php");
-			        	$disk_space_refresh.load("assets/php/disk_space_ajax.php");
-			        	$zfs_refresh.load("assets/php/zfs_ajax.php");
-			        	$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
-			        	$now_playing_refresh.load("assets/php/now_playing_ajax.php");
-			        	$system_ram_refresh.load("assets/php/system_ram_ajax.php");
-			        	$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php");
+				// Load external php files & assign variables
+				$plex_check_refresh.load('assets/php/plex_check_ajax.php');
+				$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
+				$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
+				$ping_refresh.load("assets/php/ping_ajax.php");
+				$services_refresh.load("assets/php/services_ajax.php");
+				$system_load_refresh.load("assets/php/system_load_ajax.php");
+				$disk_space_refresh.load("assets/php/disk_space_ajax.php");
+				$zfs_refresh.load("assets/php/zfs_ajax.php");
+				$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
+				$now_playing_refresh.load("assets/php/now_playing_ajax.php");
+				$system_ram_refresh.load("assets/php/system_ram_ajax.php");
+				$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php");
 			        
 				var refreshIdfastest = setInterval(function(){
 			        		$plex_check_refresh.load('assets/php/plex_check_ajax.php');
