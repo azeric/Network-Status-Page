@@ -22,7 +22,7 @@ Designed to monitor a local server and network with forecast.io, Plex, and pfSen
 
 [Plex forum thread][pft]
 
-[ls]: http://status.d4rk.co/
+[ls]: https://nicko88.com/
 [pft]: http://forums.plexapp.com/index.php/topic/84856-network-status-page/
 
 
@@ -49,13 +49,6 @@ Designed to monitor a local server and network with forecast.io, Plex, and pfSen
 
 
 [bs]: http://getbootstrap.com
-
-
-###Screenshots
----------------
-![alt tag](http://d.pr/i/1hfF8+)
-
-![alt tag](http://d.pr/i/1eTEu+)
 
 
 ###Requirements
