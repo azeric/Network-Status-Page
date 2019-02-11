@@ -140,7 +140,7 @@
 				var $plex_check_refresh = $('#plex_check');
 				var $left_column_top_refresh = $('#left_column_top');
 				var $bandwidth_refresh = $('#bandwidth');
-				var $ping_refresh = $('#ping');
+				//var $ping_refresh = $('#ping');
 				var $services_refresh = $('#services');
 				var $system_load_refresh = $('#system_load');
 				var $disk_space_refresh = $('#disk_space');
@@ -153,12 +153,12 @@
 				// Load external php files & assign variables
 				$plex_check_refresh.load('assets/php/plex_check_ajax.php');
 				$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
-				$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
+				//$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
 				$ping_refresh.load("assets/php/ping_ajax.php");
 				$services_refresh.load("assets/php/services_ajax.php");
 				$system_load_refresh.load("assets/php/system_load_ajax.php");
 				$disk_space_refresh.load("assets/php/disk_space_ajax.php");
-				$zfs_refresh.load("assets/php/zfs_ajax.php");
+				//$zfs_refresh.load("assets/php/zfs_ajax.php");
 				$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
 				$now_playing_refresh.load("assets/php/now_playing_ajax.php");
 				$system_ram_refresh.load("assets/php/system_ram_ajax.php");
