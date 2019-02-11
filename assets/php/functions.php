@@ -370,7 +370,7 @@ function makeRecenlyReleased()
 	echo '<div class="item active">';
 	$mediaKey = $plexNewestXML->Video[0]['key'];
 	$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
-	$movieTitle = $mediaXML->Video['title'];
+	$movieTitle = $mediaXML->Video['grandparentTitle'];
 	$movieArt = $mediaXML->Video['parentThumb'];
 	echo '<img src="plex.php?img='.urlencode($plex_server_ip.$movieArt) . '" alt="...">';
 	echo '</div>'; // Close item div
@@ -379,12 +379,11 @@ function makeRecenlyReleased()
 		if($i==15) break;
 		$mediaKey = $plexNewestXML->Video[$i]['key'];
 		$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
-		$movieTitle = $mediaXML->Video['title'];
+		$movieTitle = $mediaXML->Video['grandparentTitle'];
 		$movieArt = $mediaXML->Video['parentThumb'];
 		$movieYear = $mediaXML->Video['year'];
 		echo '<div class="item">';
-		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt.'?X-Plex-Token='.$plexToken).'" alt="...">';
-		//echo '<img src="'.$network.':'.$plex_port.$movieArt.'?X-Plex-Token='.$plexToken.'" alt="...">';
+		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'" alt="...">';
 		echo '<div class="carousel-caption">';
 		echo '<h3>'.$movieTitle.$movieYear.'</h3>';
 		//echo '<p>Summary</p>';
@@ -404,12 +403,6 @@ function makeRecenlyReleased()
 	echo '</div>'; // Close carousel slide div
 	echo '</div>'; // Close thumbnail div
 
-	//if($clientIP == '10.0.1.1' && count($plexSessionXML->Video) == 0) {
-	//	echo '<hr>';
-	//	echo '<h1 class="exoextralight" style="margin-top:5px;">';
-	//	echo 'Forecast</h1>';
-	//	echo '<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=40.7838&lon=-96.622773&name=Lincoln, NE"> </iframe>';
-	//}
 	echo '</div>'; // Close column div
 }
 
