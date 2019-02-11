@@ -1,6 +1,6 @@
 <?php
 
-	$config_path = "/var/www/netstatus/config.ini"; //path to config file, recommend you place it outside of web root
+	$config_path = "/var/config.ini"; //path to config file, recommend you place it outside of web root
 	
 	Ini_Set( 'display_errors', true);
 	include("lib/phpseclib0.3.5/Net/SSH2.php");
