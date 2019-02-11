@@ -97,8 +97,8 @@
 		            		cache: false,
 		            		beforeSend: function() {
 		            			$('#left_column_top').show();
-		            			$('#bandwidth').show();
-		            			$('#ping').show();
+		            			//$('#bandwidth').show();
+		            			//$('#ping').show();
 		            			$('#services').show();
 						$('#system_load').show();
 						$('#disk_space').show();
