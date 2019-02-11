@@ -5,7 +5,6 @@ This is copied from Ryan Christensen's original project for his OSX server
 I have made a  number of changes:
 - Modification of functions to support Linux shell commands
 - Removed minecraft functionality
-- Removed functionality specific to Ryan's setup (Hard disk names etc) and added my own
 - Removed services I don't have on my server and added one (Subsonic)
 - Modified the plex token function to pull this automatically from myplex (this does slow down page loading a fair bit)
 - Moved user credentials to a config.ini you can place outside of your web root. Just make sure it is correctly included in the relevant functions that require it
@@ -13,17 +12,13 @@ I have made a  number of changes:
 
 You will need php 5.5.4 and I'm running it on Apache
 
-Network Status Page - 0.2.1
+Network Status Page - 0.2.7
 ===================
+Dashboard for home servers running a small suite of media and other applications
 
-Designed to monitor a local server and network with forecast.io, Plex, and pfSense integration.
-
-[Live site][ls]
-
-[Plex forum thread][pft]
+[Example Site][ls]
 
 [ls]: https://nicko88.com/
-[pft]: http://forums.plexapp.com/index.php/topic/84856-network-status-page/
 
 
 ###Features
@@ -34,7 +29,7 @@ Designed to monitor a local server and network with forecast.io, Plex, and pfSen
 
 * Uses jQuery to provide near real time feedback
 
-* Optimized for Apple devices  `Tested on OS X 10.9/10.10 and iOS 7/8`
+* Optimized for Ubuntu Servers  `Tested on 18.04`
 
 * Displays the following:
 	* currently playing items from Plex Media Server
@@ -47,9 +42,7 @@ Designed to monitor a local server and network with forecast.io, Plex, and pfSen
 
 * Now Playing section adjusts scrollable height on the fly depending on browser window height
 
-
 [bs]: http://getbootstrap.com
-
 
 ###Requirements
 ---------------
@@ -57,8 +50,6 @@ Designed to monitor a local server and network with forecast.io, Plex, and pfSen
 * The weather sidebar requires a [forecast.io API key][fcAPI] `Free up to 1000 calls/day.`
 * Web server that supports php (apache, nginx, XAMPP, WampServer, EasyPHP, lighttpd, etc)
 * PHP 5.4
-
-**Note:** While this project is written with OS X in mind, it can very easily be adapted to run on linux or windows by rewriting the functions that don't work on those platforms.
 
 [pms]: https://plex.tv
 [pp]: https://plex.tv/subscription/about
