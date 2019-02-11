@@ -49,12 +49,10 @@ function getCpuUsage()
 	$cpuUsage = 100 - $cpuIdle;
 	return $cpuUsage;
 }
-
 function makeCpuBars()
 {
 	printBar(getCpuUsage(), "Usage");
 }	
-
 
 function byteFormat($bytes, $unit = "", $decimals = 2) {
 	$units = array('B' => 0, 'KB' => 1, 'MB' => 2, 'GB' => 3, 'TB' => 4, 
@@ -435,14 +433,14 @@ function makeNowPlaying()
 		foreach ($plexSessionXML->Video as $sessionInfo):
 			$mediaKey=$sessionInfo['key'];
 			$playerTitle=$sessionInfo->Player['title'];
-			$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey);
+			$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
 			$type=$mediaXML->Video['type'];
 			echo '<div class="thumbnail">';
 			$i++; // Increment i every pass through the array
 			if ($type == "movie"):
 				// Build information for a movie
 				$movieArt = $mediaXML->Video['thumb'];
-				echo '<img src="plex.php?img=' . urlencode($network.':'.$plex_port . $movieArt) . '" alt="...">';
+				echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt) . '" alt="...">';
 				echo '<div class="caption">';
 				$movieTitle = $mediaXML->Video['title'];
 				//echo '<h2 class="exoextralight">'.$movieTitle.'</h2>';
@@ -456,7 +454,7 @@ function makeNowPlaying()
 			else:
 				// Build information for a tv show
 				$tvArt = $mediaXML->Video['grandparentThumb'];
-				echo '<img src="plex.php?img=' . urlencode($network.':'.$plex_port . $tvArt) . '" alt="...">';
+				echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$tvArt) . '" alt="...">';
 				echo '<div class="caption">';
 				$showTitle = $mediaXML->Video['grandparentTitle'];
 				$episodeTitle = $mediaXML->Video['title'];
@@ -468,8 +466,6 @@ function makeNowPlaying()
 				echo '<h4 class="exoextralight" style="margin-top:5px;">E'.$episodeNumber.' - '.$episodeTitle.'</h4>';
 				echo '<p class="exolight">'.$episodeSummary.'</p>';
 			endif;
-			// Action buttons if we ever want to do something
-			//echo '<p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn btn-default">Action</a></p>';
 			echo "</div>";
 			echo "</div>";
 			// Should we make <hr>? Only if there is more than one video and it's not the last thumbnail created.
@@ -485,10 +481,9 @@ function makeNowPlaying()
 
 function plexMovieStats()
 {
-	global $plex_port;
 	global $plex_server_ip;
 	global $plexToken;	// You can get your Plex token using the getPlexToken() function. This will be automated once I find out how often the token has to be updated.
-	$plexNewestXML = simplexml_load_file($plex_server_ip.'/library/sections/4/all');
+	$plexNewestXML = simplexml_load_file($plex_server_ip.'/library/sections/4/all?X-Plex-Token='.$plexToken);
 	$clientIP = get_client_ip();
 	$network = getNetwork();
 	$total_movies = count($plexNewestXML -> Video);
