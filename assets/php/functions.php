@@ -421,7 +421,7 @@ function makeNowPlaying()
 	global $plex_port;
 	global $plexToken;	// You can get your Plex token using the getPlexToken() function. This will be automated once I find out how often the token has to be updated.
 	$network = getNetwork();
-	$plexSessionXML = simplexml_load_file($plex_server_ip.'/status/sessions');
+	$plexSessionXML = simplexml_load_file($plex_server_ip.'/status/sessions?X-Plex-Token='.$plexToken');
 
 	if (count($plexSessionXML->Video) == 0):
 		makeRecenlyReleased();
