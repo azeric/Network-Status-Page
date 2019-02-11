@@ -7,7 +7,7 @@
 	// You will only notice the scrolling feature when there are multiple
 	// shows being watched at the same time.
 	
-	$plexSessionXML = simplexml_load_file($plex_server_ip.'/status/sessions');
+	$plexSessionXML = simplexml_load_file($plex_server_ip.'/status/sessions?X-Plex-Token='.$plexToken);
 
 	if (count($plexSessionXML->Video) == 0):
 		$title = 'Recently Added';
