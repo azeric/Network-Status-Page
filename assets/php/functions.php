@@ -1,6 +1,7 @@
 <?php
 
 	$config_path = "/var/config.ini"; //path to config file, recommend you place it outside of web root
+	$webroot_path = "/var/www/html/Dashboard"
 	
 	Ini_Set( 'display_errors', true);
 	include("lib/phpseclib0.3.5/Net/SSH2.php");
@@ -28,10 +29,10 @@ $plexTokenCache = '/var/www/assets/misc/plex_token.txt';
 // Check to see if the plex token exists and is younger than one week
 // if not grab it and write it to our caches folder
 if (file_exists($plexTokenCache) && (filemtime($plexTokenCache) > (time() - 60 * 60 * 24 * 7))) {
-	$plexToken = file_get_contents("/var/www/assets/misc/plex_token.txt");
+	$plexToken = file_get_contents($webroot_path + "/assets/misc/plex_token.txt");
 } else {
 	file_put_contents($plexTokenCache, getPlexToken());
-	$plexToken = file_get_contents("/var/www/assets/misc/plex_token.txt");
+	$plexToken = file_get_contents($webroot_path + "/assets/misc/plex_token.txt");
 }
 	
 
