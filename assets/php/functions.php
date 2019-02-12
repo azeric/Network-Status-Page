@@ -475,7 +475,7 @@ function plexMovieStats()
 	$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
 	$total_movies = count($plexNewMoviesXML -> Video);
 	$plexNewTVXML = simplexml_load_file($plex_server_ip.'/library/sections/2/all?X-Plex-Token='.$plexToken);
-	$total_tv = count($plexNewTVXML -> Video);
+	$total_tv = count($plexNewTVXML -> Directory);
 	
 	echo '<div class="exolight">';
 	echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
