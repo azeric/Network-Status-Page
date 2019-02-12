@@ -501,7 +501,7 @@ function getBandwidth()
 	//$ssh = new Net_SSH2($local_pfsense_ip);
 	//if (!$ssh->login($ssh_username,$ssh_password)) { // replace password and username with pfSense ssh username and password if you want to use this
 	//	exit('Login Failed');
-	}
+	//}
 
 	$dump = shell_exec('vnstat -i '.$pfsense_if_name.' -tr');
 	$output = preg_split('/[\.|\s]/', $dump);
