@@ -144,7 +144,6 @@
 				var $services_refresh = $('#services');
 				var $system_load_refresh = $('#system_load');
 				var $disk_space_refresh = $('#disk_space');
-				var $zfs_refresh = $('#zfs');
 				var $now_playing_title_refresh = $('#now_playing_title');
 				var $now_playing_refresh = $('#now_playing');
 				var $system_ram_refresh = $('#system_ram');
@@ -185,7 +184,6 @@
 			        	var refreshIdslow = setInterval(function(){
 			            	$disk_space_refresh.load('assets/php/disk_space_ajax.php');
 			            	$system_ram_refresh.load('assets/php/system_ram_ajax.php');
-			            	$zfs_refresh.load("assets/php/zfs_ajax.php");
 			            	//$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php")
 			        	}, 300000); // 5 minutes
 
@@ -346,8 +344,6 @@
 									<h4 class="exoextralight">Disk space</h4>
 									<div id="disk_space"></div>
 									<hr>
-									<h4 class="exoextralight">ZPool info</h4>
-									<div id="zfs"></div>
 								</div>
 							</div>
 							<div class="panel panel-default">
