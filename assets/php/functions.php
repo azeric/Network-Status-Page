@@ -472,11 +472,14 @@ function plexMovieStats()
 {
 	global $plex_server_ip;
 	global $plexToken;	// You can get your Plex token using the getPlexToken() function. This will be automated once I find out how often the token has to be updated.
-	$plexNewestXML = simplexml_load_file($plex_server_ip.'/library/sections/3/all?X-Plex-Token='.$plexToken);
-	$total_movies = count($plexNewestXML -> Video);
+	$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
+	$total_movies = count($plexNewMoviesXML -> Video);
+	$plexNewTVXML = simplexml_load_file($plex_server_ip.'/library/sections/2/all?X-Plex-Token='.$plexToken);
+	$total_tv = count($plexNewTVXML -> Video);
 	
 	echo '<div class="exolight">';
 	echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
+	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
 	echo '</div>';
 }
 
