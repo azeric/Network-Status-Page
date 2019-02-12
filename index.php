@@ -186,7 +186,7 @@
 			            	$disk_space_refresh.load('assets/php/disk_space_ajax.php');
 			            	$system_ram_refresh.load('assets/php/system_ram_ajax.php');
 			            	$zfs_refresh.load("assets/php/zfs_ajax.php");
-			            	$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php")
+			            	//$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php")
 			        	}, 300000); // 5 minutes
 
 			        	var refreshtopleft = setInterval(function(){
