@@ -14,7 +14,7 @@
 	$wan_domain = $config['network']['wan_domain'];
 	$plex_server_ip = $config['network']['plex_server_ip'];
 	$ssh_username = $config['credentials']['ssh_username'];
-	$ssh_password = $config['credentials']['ssh_password'];
+	$ssh_key = $config['credentials']['ssh_key'];
 	$plex_username = $config['credentials']['plex_username'];
 	$plex_password = $config['credentials']['plex_password'];
 	$forecast_api = $config['api_keys']['forecast_api'];
@@ -22,7 +22,6 @@
 	$weather_lat = $config['misc']['weather_lat'];
 	$weather_long = $config['misc']['weather_long'];
 	$plex_port = $config['network']['plex_port'];
-	$zpools = $config['zpools'];
 	$filesystems = $config['filesystems'];
 
 // Check to see if the plex token exists and is younger than one week
@@ -132,71 +131,6 @@ function getDiskspaceUsed($dir)
 	$du = $dt - $df;
 	return $du;
 }
-
-function zpoolHealth($name) //returns status of provided zpool
-{
-	$zpool = shell_exec('sudo /sbin/zpool status '.$name);
-        $findme = 'state:';
-        $stateStart = strpos($zpool, $findme);
-        $health = (substr($zpool, $stateStart + 7, 8)); // GB
-	return $health;
-}	
-
-function zfsFilesystems($zpool) //returns 2 dimensional array of all filesystems in provided zpool, with name, used space and available space
-{
-		$output = shell_exec('sudo /sbin/zfs get -r -o name,value -Hp used,avail '.$zpool);
-        $zfs_fs_stats = preg_split('/[\n|\t]/',$output);
-        $zfs_fs_stats_p = array_pop($zfs_fs_stats);
-		$zfs_fs_array = array_chunk($zfs_fs_stats,4);
-		return $zfs_fs_array;
-}
-
-function printZpools()
-{
-	global $zpools;
-	foreach ($zpools as $index => $name) {
-	$status = zpoolHealth($name);
-	$fs = zfsFilesystems($name);
-	$fs_avail = $fs[0][3];
-	$fs_used = $fs[0][1];
-	#foreach($fs as $fs_ind => $fss) {
-	#	$fs_used += $fss[1];
-	#	}
-	$fs_total = $fs_used + $fs_avail;
-	$fs_pct = number_format(($fs_used / $fs_total)*100);
-	$online = $status == "ONLINE" ? 'True' : 'False';
-	$zp = new zpool($name, $status, $online);
-	echo '<table>';
-		echo '<tr>';
-			echo '<td style="text-align: right; padding-right:5px;" class="exoextralight">'.$zp->name.': '.number_format($fs_pct, 0) .'%</td>';
-			echo '<td style="text-align: left;">'.$zp->makeButton().'</td>';
-		echo '</tr>';
-		echo '</table>';
-			echo '<div id="zfs_'.$zp->name.'" class="collapse">';
-				echo '<div rel="tooltip" data-toggle="tooltip" data-placement="bottom" title="' . byteFormat($fs_used, "GB", 0) . ' / ' . byteFormat($fs_total, "GB", 0) . '" class="progress">';
-					echo '<div class="progress">';
-  					echo '<div class="progress-bar" style="width: '.$fs_pct.'%"></div>';
-  					echo '<span class="sr-only">'.$fs_pct.'% Complete</span>';
-  					echo '</div>';
-  				echo '</div>';
-			foreach($fs as $fs_ind => $fss){
-				$fss_n = $fss[0];
-				$fss_u = $fss[1];
-				$fss_p = number_format(($fss_u / $fs_total)*100);
-				echo '<div rel="tooltip" data-toggle="tooltip" data-placement="bottom" title="'.$fss_n.': ' . byteFormat($fss_u, "GB", 0) . '" class="progress">';	
-					echo '<div class="progress">';
-  					echo '<div class="progress-bar progress-bar-success" style="width: '.$fss_p.'%">';
-  					echo '<span>'.$fss_p.'% Complete</span>';
-  					#echo '<span style="text-align: center">'.$fss_n.'</span>';
-					echo '</div>';
-  					echo '</div>';
-  				echo '</div>';
-				}
-			echo '</div>';
-		
-	}
-}
-
 
 function getLoad($id)
 {
@@ -308,44 +242,6 @@ function get_client_ip()
 	} 
 	return $ipaddress;
 }
-
-#function makeRecenlyPlayed()
-#{
-#	$plexSessionXML = simplexml_load_file('http://127.0.0.1:32400/status/sessions');
-#	$clientIP = get_client_ip();
-#
-#	$network = getNetwork();
-#	$trakt_url = 'http://trakt.tv/user/d4rk/widgets/watched/all-tvthumb.jpg';
-#	$traktThumb = '/Users/zeus/Sites/d4rk.co/assets/misc/all-tvthumb.jpg';
-#
-#	echo '<div class="col-md-12">';
-#	if (file_exists($traktThumb) && (filemtime($traktThumb) > (time() - 60 * 15))) {
-#		// Trakt image is less than 15 minutes old.
-#		// Don't refresh the image, just use the file as-is.
-#		echo '<img src="'.$network.'/assets/misc/all-tvthumb.jpg" alt="trakt.tv" class="img-responsive"></a>';
-#	} else {
-#		// Either file doesn't exist or our cache is out of date,
-#		// so check if the server has different data,
-#		// if it does, load the data from our remote server and also save it over our cache for next time.
-#		$thumbFromTrakt_md5 = md5_file($trakt_url);
-#		$traktThumb_md5 = md5_file($traktThumb);
-#		if ($thumbFromTrakt_md5 === $traktThumb_md5) {
-#			echo '<img src="'.$network.'/assets/misc/all-tvthumb.jpg" alt="trakt.tv" class="img-responsive"></a>';
-#		} else {
-#			$thumbFromTrakt = file_get_contents($trakt_url);
-#			file_put_contents($traktThumb, $thumbFromTrakt, LOCK_EX);
-#			echo '<img src="'.$network.'/assets/misc/all-tvthumb.jpg" alt="trakt.tv" class="img-responsive"></a>';
-#
-#		}
-#	}
-#	if($clientIP == '127.0.0.1' && count($plexSessionXML->Video) == 0) {
-#		echo '<hr>';
-#		echo '<h1 class="exoextralight" style="margin-top:5px;">';
-#		echo 'Forecast</h1>';
-#		echo '<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=40.7838&lon=-96.622773&name=Lincoln, NE"> </iframe>';
-#	}
-#	echo '</div>';
-#}
 
 function makeRecenlyReleased()
 {
@@ -496,12 +392,13 @@ function getBandwidth()
 {
     global $local_pfsense_ip;
 	global $ssh_username;
-	global $ssh_password;
+	global $ssh_key;
 	global $pfsense_if_name;
-	//$ssh = new Net_SSH2($local_pfsense_ip);
-	//if (!$ssh->login($ssh_username,$ssh_password)) { // replace password and username with pfSense ssh username and password if you want to use this
-	//	exit('Login Failed');
-	//}
+	$ssh = new Net_SSH2($local_pfsense_ip);
+	$key = new RSA($ssh_key);
+	if (!$ssh->login($ssh_username,$key)) { 
+		exit('Login Failed');
+	}
 
 	$dump = shell_exec('vnstat -i '.$pfsense_if_name.' -tr');
 	$output = preg_split('/[\.|\s]/', $dump);
