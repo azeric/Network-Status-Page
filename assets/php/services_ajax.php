@@ -33,8 +33,9 @@ $services = array(
 	//new serviceSAB($sabTitle, 8080, "http://coruscant:8080", "127.0.0.1:8080"),
 	//new service("SickBeard", 8081, "http://coruscant:8085"),
 	new service("NextCloud", "https://cloud.01tools.com"),
-	#new service("Transmission", 9091, "http://d4rk.co:9091"),
-	#new service("Subsonic",4040, "http://dashbad.com:4040")
+	new service("Home Assistant", "https://iot.01tools.com"),
+	new service("Sonarr","https://tv.01tools.com"),
+	new service("Radarr", "https://movies.01tools.com")
 	
 );
 ?>
