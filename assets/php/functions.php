@@ -5,7 +5,6 @@
 	$plexTokenCache = '/var/www/html/Network-Status-Page/assets/misc/plex_token.txt';
 	
 	Ini_Set( 'display_errors', true);
-	include("lib/phpseclib/Net/SSH2.php");
 	$config = parse_ini_file($config_path, true);
 	
 	$local_pfsense_ip = $config['network']['local_pfsense_ip'];
@@ -55,8 +54,7 @@ function makeCpuBars()
 }	
 
 function byteFormat($bytes, $unit = "", $decimals = 2) {
-	$units = array('B' => 0, 'KB' => 1, 'MB' => 2, 'GB' => 3, 'TB' => 4, 
-			'PB' => 5, 'EB' => 6, 'ZB' => 7, 'YB' => 8);
+	$units = array('B' => 0, 'KB' => 1, 'MB' => 2, 'GB' => 3, 'TB' => 4, 'PB' => 5, 'EB' => 6, 'ZB' => 7, 'YB' => 8);
  
 	$value = 0;
 	if ($bytes > 0) {
@@ -176,7 +174,6 @@ function printRamBar($percent, $name = "", $used, $total)
 		echo '</div>';
 	echo '</div>';
 }
-
 
 function printDiskBarGB($dup, $name = "", $dsu, $dts)
 {
