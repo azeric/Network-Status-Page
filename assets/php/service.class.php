@@ -19,8 +19,20 @@ class service
 	function check_port()
 	{
 		//if (!$fp = curl_init($this->url)) return false;
-		$headers=get_headers($this->url, 1);
-   		if ($headers[0]!='HTTP/1.1 200 OK') return true; else return false;
+		$handle = curl_init($this->url);
+		curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+
+		/* Get the HTML or whatever is linked in $url. */
+		$response = curl_exec($handle);
+
+		/* Check for 404 (file not found). */
+		$httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+		if($httpCode == 404) {
+			return false;
+		}
+		return true;
+
+curl_close($handle);
 	}
 	
 	function makeButton()
