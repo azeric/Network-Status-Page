@@ -332,8 +332,8 @@
 									</h4>
 									</div>
 								<div class="panel-body">
-									<h4 class="exoextralight">Graphs</h4>
-									<div id="system_graphs"></div>
+									<!--<h4 class="exoextralight">Graphs</h4>
+									<div id="system_graphs"></div>-->
 									<hr>
 									<h4 class="exoextralight">Load</h4>
 									<div id="system_load"></div>

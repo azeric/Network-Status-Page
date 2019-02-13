@@ -392,11 +392,12 @@ function getBandwidth()
 {
     global $local_pfsense_ip;
 	global $ssh_username;
+	global $ssh_password;
 	global $ssh_key;
 	global $pfsense_if_name;
 	$ssh = new Net_SSH2($local_pfsense_ip);
 	$key = new RSA($ssh_key);
-	if (!$ssh->login($ssh_username,$key)) { 
+	if (!$ssh->login($ssh_username,$ssh_password)) { 
 		exit('Login Failed');
 	}
 
