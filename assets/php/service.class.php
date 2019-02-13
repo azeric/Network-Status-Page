@@ -19,7 +19,7 @@ class service
 	function check_port()
 	{
 		//if (!$fp = curl_init($this->url)) return false;
-		$headers=get_headers($url, 1);
+		$headers=get_headers($this->url, 1);
    		if ($headers[0]!='HTTP/1.1 200 OK') return true; else return false;
 	}
 	
