@@ -97,12 +97,11 @@
 		            		cache: false,
 		            		beforeSend: function() {
 		            			$('#left_column_top').show();
-		            			$('#bandwidth').show();
+		            			//$('#bandwidth').show();
 		            			//$('#ping').show();
 		            			$('#services').show();
 						$('#system_load').show();
 						$('#disk_space').show();
-						//$('#zfs').show();
 						$('#now_playing_title').show();
 						$('#now_playing').show();
 						$('#system_ram').show();
@@ -110,12 +109,11 @@
 		            		},
 				            complete: function() {
 				            	$('#left_column_top').show();
-				            	$('#bandwidth').show();
+				            	//$('#bandwidth').show();
 				            	//$('#ping').show();
 				            	$('#services').show();
 						$('#system_load').show();
 						$('#disk_space').show();
-						//$('#zfs').show();
 						$('#now_playing_title').show();
 						$('#now_playing').show();
 						$('#system_ram').show();
@@ -123,12 +121,11 @@
 				            },
 				            success: function() {
 				            	$('#left_column_top').show();
-				            	$('#bandwidth').show();
+				            	//$('#bandwidth').show();
 				            	//$('#ping').show();
 				            	$('#services').show();
 						$('#system_load').show();
 						$('#disk_space').show();
-						//$('#zfs').show();
 						$('#now_playing_title').show();
 						$('#now_playing').show();
 						$('#system_ram').show();
@@ -139,7 +136,7 @@
 				// Assign varibles to DOM sections
 				var $plex_check_refresh = $('#plex_check');
 				var $left_column_top_refresh = $('#left_column_top');
-				var $bandwidth_refresh = $('#bandwidth');
+				//var $bandwidth_refresh = $('#bandwidth');
 				//var $ping_refresh = $('#ping');
 				var $services_refresh = $('#services');
 				var $system_load_refresh = $('#system_load');
@@ -157,7 +154,6 @@
 				$services_refresh.load("assets/php/services_ajax.php");
 				$system_load_refresh.load("assets/php/system_load_ajax.php");
 				$disk_space_refresh.load("assets/php/disk_space_ajax.php");
-				//$zfs_refresh.load("assets/php/zfs_ajax.php");
 				$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
 				$now_playing_refresh.load("assets/php/now_playing_ajax.php");
 				$system_ram_refresh.load("assets/php/system_ram_ajax.php");
@@ -172,7 +168,7 @@
 			        	}, 5000); // 5 seconds
 
 			        	var refreshId30 = setInterval(function(){
-			        		$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
+			        		//$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
 			        		$ping_refresh.load("assets/php/ping_ajax.php");
 			        		$services_refresh.load("assets/php/services_ajax.php");
 			        	}, 30000); // 30 seconds
@@ -218,10 +214,9 @@
 				                    cache:false,
 				                    success:function(res,code,xhr) {
 				                         localStorage["resourcemodified"] = xhr.getResponseHeader("Last-Modified");
-				                         console.log("Updating our cache and refreshing Now Playing divs");
 				                         $left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
 				                         $now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
-			        			   $now_playing_refresh.load("assets/php/now_playing_ajax.php");
+			        			   		 $now_playing_refresh.load("assets/php/now_playing_ajax.php");
 				                    }                    
 				               })
 				          }
