@@ -5,7 +5,8 @@
 	$plexTokenCache = '/var/www/html/Network-Status-Page/assets/misc/plex_token.txt';
 	
 	Ini_Set( 'display_errors', true);
-	include("lib/phpseclib/Net/SSH2.php");
+	//include("lib/phpseclib/Net/SSH2.php");
+	use phpseclib\Net\SSH2;
 	$config = parse_ini_file($config_path, true);
 	
 	$local_pfsense_ip = $config['network']['local_pfsense_ip'];
@@ -395,7 +396,7 @@ function getBandwidth()
 	global $ssh_password;
 	global $ssh_key;
 	global $pfsense_if_name;
-	$ssh = new Net_SSH2($local_pfsense_ip);
+	$ssh = new SSH2($local_pfsense_ip);
 	$key = new RSA($ssh_key);
 	if (!$ssh->login($ssh_username,$ssh_password)) { 
 		exit('Login Failed');
