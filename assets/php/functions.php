@@ -6,7 +6,7 @@
 	
 	Ini_Set( 'display_errors', true);
 	//include("lib/phpseclib/Net/SSH2.php");
-	use phpseclib\Net\SSH2;
+	use lib\phpseclib\Net\SSH2;
 	$config = parse_ini_file($config_path, true);
 	
 	$local_pfsense_ip = $config['network']['local_pfsense_ip'];
