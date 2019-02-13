@@ -97,7 +97,7 @@
 		            		cache: false,
 		            		beforeSend: function() {
 		            			$('#left_column_top').show();
-		            			//$('#bandwidth').show();
+		            			$('#bandwidth').show();
 		            			//$('#ping').show();
 		            			$('#services').show();
 						$('#system_load').show();
@@ -110,7 +110,7 @@
 		            		},
 				            complete: function() {
 				            	$('#left_column_top').show();
-				            	//$('#bandwidth').show();
+				            	$('#bandwidth').show();
 				            	//$('#ping').show();
 				            	$('#services').show();
 						$('#system_load').show();
@@ -123,7 +123,7 @@
 				            },
 				            success: function() {
 				            	$('#left_column_top').show();
-				            	//$('#bandwidth').show();
+				            	$('#bandwidth').show();
 				            	//$('#ping').show();
 				            	$('#services').show();
 						$('#system_load').show();
