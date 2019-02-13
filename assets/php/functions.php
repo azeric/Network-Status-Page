@@ -5,8 +5,7 @@
 	$plexTokenCache = '/var/www/html/Network-Status-Page/assets/misc/plex_token.txt';
 	
 	Ini_Set( 'display_errors', true);
-	//include("lib/phpseclib/Net/SSH2.php");
-	use lib\phpseclib\Net\SSH2;
+	include("lib/phpseclib/Net/SSH2.php");
 	$config = parse_ini_file($config_path, true);
 	
 	$local_pfsense_ip = $config['network']['local_pfsense_ip'];
