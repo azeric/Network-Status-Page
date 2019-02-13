@@ -15,6 +15,7 @@
 	$wan_domain = $config['network']['wan_domain'];
 	$plex_server_ip = $config['network']['plex_server_ip'];
 	$ssh_username = $config['credentials']['ssh_username'];
+	$ssh_password = $config['credentials']['ssh_password'];
 	$ssh_key = $config['credentials']['ssh_key'];
 	$plex_username = $config['credentials']['plex_username'];
 	$plex_password = $config['credentials']['plex_password'];
