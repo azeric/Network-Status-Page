@@ -273,7 +273,7 @@
 									<div id="left_column_top"></div>
 								</div>
 							</div>
-							<!-- Bandwidth -->
+							<!-- Bandwidth
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title exoextralight">
@@ -284,7 +284,7 @@
 								<div class="panel-body" style="height:150px">
 									<div id="bandwidth"></div>
 								</div>
-							</div>
+							</div> -->
 							<!-- Services -->
 							<div class="panel panel-default">
 								<div class="panel-heading">
