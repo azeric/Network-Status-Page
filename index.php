@@ -155,7 +155,7 @@
 				$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php");
 			        
 				var refreshIdfastest = setInterval(function(){
-			        		$plex_check_refresh.load('assets/php/plex_check_ajax.php');
+			        		//$plex_check_refresh.load('assets/php/plex_check_ajax.php');
 			        	}, 10000); // at 3, 5 seconds python was crashing.
 
 			        	var refreshIdfastest = setInterval(function(){
