@@ -101,34 +101,32 @@
 		            		beforeSend: function() {
 		            			$('#left_column_top').show();
 		            			$('#services').show();
-						$('#system_load').show();
-						$('#disk_space').show();
-						$('#now_playing_title').show();
-						$('#now_playing').show();
-						$('#system_ram').show();
-						$('#plex_movie_stats').show();
+								$('#system_load').show();
+								$('#disk_space').show();
+								$('#now_playing_title').show();
+								$('#now_playing').show();
+								$('#system_ram').show();
+								$('#plex_movie_stats').show();
 		            		},
 				            complete: function() {
 				            	$('#left_column_top').show();
 				            	$('#services').show();
-						$('#system_load').show();
-						$('#disk_space').show();
-						$('#now_playing_title').show();
-						$('#now_playing').show();
-						$('#system_ram').show();
-						$('#plex_movie_stats').show();
+								$('#system_load').show();
+								$('#disk_space').show();
+								$('#now_playing_title').show();
+								$('#now_playing').show();
+								$('#system_ram').show();
+								$('#plex_movie_stats').show();
 				            },
 				            success: function() {
 				            	$('#left_column_top').show();
-				            	//$('#bandwidth').show();
-				            	//$('#ping').show();
 				            	$('#services').show();
-						$('#system_load').show();
-						$('#disk_space').show();
-						$('#now_playing_title').show();
-						$('#now_playing').show();
-						$('#system_ram').show();
-						$('#plex_movie_stats').show();
+								$('#system_load').show();
+								$('#disk_space').show();
+								$('#now_playing_title').show();
+								$('#now_playing').show();
+								$('#system_ram').show();
+								$('#plex_movie_stats').show();
 				            }
 				});
 

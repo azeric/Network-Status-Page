@@ -306,7 +306,7 @@ function staticmakeRecenlyReleased()
 	
 	$i=0;
 	for ( ; ; ) {
-		if($i==10) break;
+		if($i==12) break;
 		$mediaKey = $plexNewestXML->Video[$i]['key'];
 		$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
 		$movieArt = $mediaXML->Video['parentThumb'];

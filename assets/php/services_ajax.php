@@ -29,13 +29,15 @@
 
 $services = array(
 	new service("Plex", $plex_server_ip."/web/index.html#!/dashboard"),
-	#new service("pfSense", 80, "http://192.168.1.1", "192.168.1.1"),
-	//new serviceSAB($sabTitle, 8080, "http://coruscant:8080", "127.0.0.1:8080"),
-	//new service("SickBeard", 8081, "http://coruscant:8085"),
 	new service("NextCloud", "https://cloud.01tools.com"),
 	new service("Home Assistant", "https://iot.01tools.com"),
+	new service("Motioneye", "https://camera.01tools.com"),
+	new service("ruTorrent", "https://lw815.ultraseedbox.com/~azeric/rutorrent/"),
 	new service("Sonarr","https://tv.01tools.com"),
-	new service("Radarr", "https://movies.01tools.com")
+	new service("Radarr", "https://movies.01tools.com"),
+	new service("Jackett", "https://index.01tools.com"),
+	new service("PiHole", "https://dns.01tools.com/admin")
+
 	
 );
 ?>
