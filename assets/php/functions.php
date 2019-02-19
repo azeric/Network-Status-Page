@@ -305,9 +305,6 @@ function staticmakeRecenlyReleased()
 	$clientIP = get_client_ip();
 	$network = getNetwork();
 	
-
-	echo '<!-- Wrapper for slides -->';
-	echo '<div class="card" style="width: 18rem;">';
 	$i=0;
 	for ( ; ; ) {
 		if($i==10) break;
@@ -317,7 +314,6 @@ function staticmakeRecenlyReleased()
 		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'"class="img-fluid" alt="...">';
 		$i++;
 	}
-	echo '</div>'; // Close card div
 
 }
 
