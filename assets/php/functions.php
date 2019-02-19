@@ -296,6 +296,49 @@ function makeRecenlyReleased()
 	echo '</div>'; // Close column div
 }
 
+function staticmakeRecenlyReleased()
+{
+	global $plex_port;
+	global $plex_server_ip;
+	global $plexToken ;	// You can get your Plex token using the getPlexToken() function. This will be automated once I find out how often the token has to be updated.
+	$plexNewestXML = simplexml_load_file($plex_server_ip.'/library/sections/2/recentlyAdded?X-Plex-Token='.$plexToken);
+	$clientIP = get_client_ip();
+	$network = getNetwork();
+	
+	echo '<div class="col-md-12">';
+	echo '<div class="thumbnail">';
+	echo '<div id="carousel-example-generic" class=" carousel slide">';
+	echo '<!-- Wrapper for slides -->';
+	echo '<div class="card" style="width: 18rem;">';
+	echo '<div class="item active">';
+	$mediaKey = $plexNewestXML->Video[0]['key'];
+	$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
+	$movieTitle = $mediaXML->Video['grandparentTitle'];
+	$movieArt = $mediaXML->Video['parentThumb'];
+	echo '<img src="plex.php?img='.urlencode($plex_server_ip.$movieArt) . '" alt="...">';
+	echo '</div>'; // Close item div
+	$i=1;
+	for ( ; ; ) {
+		if($i==15) break;
+		$mediaKey = $plexNewestXML->Video[$i]['key'];
+		$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
+		$movieTitle = $mediaXML->Video['grandparentTitle'];
+		$movieArt = $mediaXML->Video['parentThumb'];
+		$movieYear = $mediaXML->Video['year'];
+		echo '<div class="item">';
+		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'" alt="...">';
+		echo '</div>'; // Close item div
+		$i++;
+	}
+	echo '</div>'; // Close card div
+
+	
+	echo '</div>'; // Close carousel slide div
+	echo '</div>'; // Close thumbnail div
+
+	echo '</div>'; // Close column div
+}
+
 function makeNowPlaying()
 {
 	global $plex_server_ip;
@@ -305,7 +348,7 @@ function makeNowPlaying()
 	$plexSessionXML = simplexml_load_file($plex_server_ip.'/status/sessions?X-Plex-Token='.$plexToken);
 
 	if (count($plexSessionXML->Video) == 0):
-		makeRecenlyReleased();
+		staticmakeRecenlyReleased();
 	else:
 		$i = 0; // Initiate and assign a value to i & t
 		$t = 0;
