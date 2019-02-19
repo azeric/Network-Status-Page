@@ -305,30 +305,20 @@ function staticmakeRecenlyReleased()
 	$clientIP = get_client_ip();
 	$network = getNetwork();
 	
-	echo '<div class="col-md-12">';
-	echo '<div class="thumbnail">';
+
 	echo '<!-- Wrapper for slides -->';
 	echo '<div class="card" style="width: 18rem;">';
-	$mediaKey = $plexNewestXML->Video[0]['key'];
-	$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
-	$movieTitle = $mediaXML->Video['grandparentTitle'];
-	$movieArt = $mediaXML->Video['parentThumb'];
-	echo '<img src="plex.php?img='.urlencode($plex_server_ip.$movieArt) . '"class="card-img-top" alt="...">';
-	$i=1;
+	$i=0;
 	for ( ; ; ) {
-		if($i==15) break;
+		if($i==10) break;
 		$mediaKey = $plexNewestXML->Video[$i]['key'];
 		$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
-		$movieTitle = $mediaXML->Video['grandparentTitle'];
 		$movieArt = $mediaXML->Video['parentThumb'];
-		$movieYear = $mediaXML->Video['year'];
-		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'"class="card-img-top" alt="...">';
+		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'"class="img-fluid" alt="...">';
 		$i++;
 	}
 	echo '</div>'; // Close card div
-	echo '</div>'; // Close thumbnail div
 
-	echo '</div>'; // Close column div
 }
 
 function makeNowPlaying()
