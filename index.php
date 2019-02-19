@@ -135,8 +135,6 @@
 				// Assign varibles to DOM sections
 				var $plex_check_refresh = $('#plex_check');
 				var $left_column_top_refresh = $('#left_column_top');
-				//var $bandwidth_refresh = $('#bandwidth');
-				//var $ping_refresh = $('#ping');
 				var $services_refresh = $('#services');
 				var $system_load_refresh = $('#system_load');
 				var $disk_space_refresh = $('#disk_space');
@@ -165,8 +163,6 @@
 			        	}, 5000); // 5 seconds
 
 			        	var refreshId30 = setInterval(function(){
-			        		//$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
-			        		$ping_refresh.load("assets/php/ping_ajax.php");
 			        		$services_refresh.load("assets/php/services_ajax.php");
 			        	}, 30000); // 30 seconds
 
@@ -284,7 +280,7 @@
 						<!-- Center Area -->
 						<div class="col-md-6">
 							<div id="now_playing_title"></div>
-							<div class="col-sm-6">
+							
 							<?php	echo '<div id="now_playing"';
 							// Check to see if we're on a mobile device because overflow scrolling sucks on them.
 							// If we're on a cellphone disable the overflow:auto feature.
@@ -294,7 +290,7 @@
 								echo ' style="overflow:auto;">';
 							endif;
 								echo '</div>';?>
-								</div>
+
 							<hr class="visible-xs">
 							<hr>
 						</div>
