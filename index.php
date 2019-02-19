@@ -287,6 +287,7 @@
 						<!-- Center Area -->
 						<div class="col-md-6">
 							<div id="now_playing_title"></div>
+							<div class="col-sm-6">
 							<?php	echo '<div id="now_playing"';
 							// Check to see if we're on a mobile device because overflow scrolling sucks on them.
 							// If we're on a cellphone disable the overflow:auto feature.
@@ -296,6 +297,7 @@
 								echo ' style="overflow:auto;">';
 							endif;
 								echo '</div>';?>
+								</div>
 							<hr class="visible-xs">
 							<hr>
 						</div>
