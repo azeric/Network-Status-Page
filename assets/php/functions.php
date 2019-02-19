@@ -307,16 +307,13 @@ function staticmakeRecenlyReleased()
 	
 	echo '<div class="col-md-12">';
 	echo '<div class="thumbnail">';
-	echo '<div id="carousel-example-generic" class=" carousel slide">';
 	echo '<!-- Wrapper for slides -->';
 	echo '<div class="card" style="width: 18rem;">';
-	echo '<div class="item active">';
 	$mediaKey = $plexNewestXML->Video[0]['key'];
 	$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
 	$movieTitle = $mediaXML->Video['grandparentTitle'];
 	$movieArt = $mediaXML->Video['parentThumb'];
-	echo '<img src="plex.php?img='.urlencode($plex_server_ip.$movieArt) . '" alt="...">';
-	echo '</div>'; // Close item div
+	echo '<img src="plex.php?img='.urlencode($plex_server_ip.$movieArt) . '"class="card-img-top" alt="...">';
 	$i=1;
 	for ( ; ; ) {
 		if($i==15) break;
@@ -325,15 +322,10 @@ function staticmakeRecenlyReleased()
 		$movieTitle = $mediaXML->Video['grandparentTitle'];
 		$movieArt = $mediaXML->Video['parentThumb'];
 		$movieYear = $mediaXML->Video['year'];
-		echo '<div class="item">';
-		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'" alt="...">';
-		echo '</div>'; // Close item div
+		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'"class="card-img-top" alt="...">';
 		$i++;
 	}
 	echo '</div>'; // Close card div
-
-	
-	echo '</div>'; // Close carousel slide div
 	echo '</div>'; // Close thumbnail div
 
 	echo '</div>'; // Close column div
