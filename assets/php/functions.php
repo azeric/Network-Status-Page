@@ -312,7 +312,7 @@ function staticmakeRecenlyReleased()
 		$movieArt = $mediaXML->Video['parentThumb'];
 		echo '<div class="col-xs-4 col-xs-4">';
 		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'"class="img-fluid" alt="...">';
-		ech '</div>';
+		echo '</div>';
 		$i++;
 	}
 
