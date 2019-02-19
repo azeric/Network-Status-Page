@@ -273,18 +273,6 @@
 									<div id="left_column_top"></div>
 								</div>
 							</div>
-							<!-- Bandwidth
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title exoextralight">
-										<span id="ping" class="badge pull-right" rel="tooltip" data-toggle="tooltip" data-placement="left" title="Ping"></span>
-										Bandwidth
-									</h4>
-								</div>
-								<div class="panel-body" style="height:150px">
-									<div id="bandwidth"></div>
-								</div>
-							</div> -->
 							<!-- Services -->
 							<div class="panel panel-default">
 								<div class="panel-heading">
