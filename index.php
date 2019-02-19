@@ -49,34 +49,6 @@
 			.exoregular {
 				font-family:"exoregular";
 			}
-			/* Changes carousel slide transition to fade transition */
-			.carousel {
-				overflow: hidden;
-			}
-			.carousel .item {
-				-webkit-transition: opacity 1s;
-				-moz-transition: opacity 1s;
-				-ms-transition: opacity 1s;
-				-o-transition: opacity 1s;
-				transition: opacity 1s;
-			}
-			.carousel .active.left, .carousel .active.right {
-				left:0;
-				opacity:0;
-				z-index:2;
-			}
-			.carousel .next, .carousel .prev {
-				left:0;
-				opacity:1;
-				z-index:1;
-			}
-			/* Disables shadowing on right and left sides of carousel images for a crisp look */
-			.carousel-control.left {
-				background-image: none;
-			}
-			.carousel-control.right {
-				background-image: none;
-			}
 			img {
 				width: 100%;
 			}
@@ -131,7 +103,7 @@
 				});
 
 				// Assign varibles to DOM sections
-				var $plex_check_refresh = $('#plex_check');
+				//var $plex_check_refresh = $('#plex_check');
 				var $left_column_top_refresh = $('#left_column_top');
 				var $services_refresh = $('#services');
 				var $system_load_refresh = $('#system_load');
@@ -142,7 +114,7 @@
 				var $plex_movie_stats_refresh = $('#plex_movie_stats');
 
 				// Load external php files & assign variables
-				$plex_check_refresh.load('assets/php/plex_check_ajax.php');
+				//$plex_check_refresh.load('assets/php/plex_check_ajax.php');
 				$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
 				$services_refresh.load("assets/php/services_ajax.php");
 				$system_load_refresh.load("assets/php/system_load_ajax.php");
@@ -332,6 +304,6 @@
 			</div>
 		</div>
 		<!-- Invisible php div-->
-		<div id="plex_check"></div>
+		<!--<div id="plex_check"></div>-->
 		</body>
 </html>

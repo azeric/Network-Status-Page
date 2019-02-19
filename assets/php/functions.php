@@ -86,7 +86,7 @@ function makeDiskBars()
 		$fs = explode(",",$fs_info);
 	
 	printDiskBarGB(getDiskspace($fs[0]), $fs[1], getDiskspaceUsed($fs[0]), disk_total_space($fs[0]));
-}
+	}
 }
 
 function makeRamBars()
@@ -199,21 +199,6 @@ function printDiskBarGB($dup, $name = "", $dsu, $dts)
 			echo '<div class="'. $progress .'" style="width: ' . $dup . '%"></div>';
 		echo '</div>';
 	echo '</div>';
-}
-
-function ping()
-{
-	global $local_server_ip;
-	$clientIP = get_client_ip();
-	$pingIP = '8.8.8.8';
-	if($clientIP != $local_server_ip) {
-		$pingIP = $clientIP;
-	}
-	$terminal = shell_exec('ping -c 5 '.$pingIP);
-	$findme = 'dev =';
-	$start = strpos($terminal, $findme);
-	$avgPing = substr($terminal, ($start +13), 2);
-	return $avgPing;
 }
 
 function getNetwork() //returns wan_domain if you are outside your network, and local_server_ip if you are within the network
@@ -470,11 +455,11 @@ function getPlexToken()
 	return $token;
 }
 
-function getDir($b)
-{
-   $dirs = array('N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N');
-   return $dirs[round($b/45)];
-}
+// function getDir($b)
+// {
+//    $dirs = array('N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N');
+//    return $dirs[round($b/45)];
+// }
 
 function makeWeatherSidebar()
 {

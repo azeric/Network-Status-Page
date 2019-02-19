@@ -35,7 +35,7 @@ $services = array(
 	new service("ruTorrent", "https://lw815.ultraseedbox.com/~azeric/rutorrent/"),
 	new service("Sonarr","https://tv.01tools.com"),
 	new service("Radarr", "https://movies.01tools.com"),
-	new service("Jackett", "https://index.01tools.com"),
+	new service("Jackett", "https://indexer.01tools.com"),
 	new service("PiHole", "https://dns.01tools.com/admin")
 
 	
