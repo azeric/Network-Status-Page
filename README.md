@@ -8,7 +8,6 @@ I have made a  number of changes:
 - Removed services I don't have on my server and added one (Subsonic)
 - Modified the plex token function to pull this automatically from myplex (this does slow down page loading a fair bit)
 - Moved user credentials to a config.ini you can place outside of your web root. Just make sure it is correctly included in the relevant functions that require it
-- Amended IP Addresses to reflect my LAN
 
 
 Network Status Page - 0.2.7
