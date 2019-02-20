@@ -7,7 +7,6 @@
 	include('assets/php/Mobile_Detect.php');
 
 	$detect = new Mobile_Detect;
-	//$plexSessionXML = simplexml_load_file($config['network']['plex_server_ip'].'/status/sessions');
 ?>
 <html lang="en">
 	<head>
