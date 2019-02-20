@@ -10,7 +10,6 @@ I have made a  number of changes:
 - Moved user credentials to a config.ini you can place outside of your web root. Just make sure it is correctly included in the relevant functions that require it
 - Amended IP Addresses to reflect my LAN
 
-You will need php 5.5.4 and I'm running it on Apache
 
 Network Status Page - 0.2.7
 ===================
