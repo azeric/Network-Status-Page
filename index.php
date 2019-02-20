@@ -156,8 +156,8 @@
 			        	// Load these sections only if Plex has changed states
 			        	var theResource = "assets/misc/plexcheckfile2.txt";
  
- 				var refreshconditional = setInterval(function(){
-				          if(localStorage["resourcemodified"]) {
+ 						var refreshconditional = setInterval(function(){
+				          	if(localStorage["resourcemodified"]) {
 				               $.ajax({
 				                    url:theResource,
 				                    type:"head",

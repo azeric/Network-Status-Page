@@ -7,7 +7,7 @@
 
 	$config = parse_ini_file($config_path, true);
 
-	$wan_domain = $config['network']['wan_domain'];
+	//$wan_domain = $config['network']['wan_domain'];
 	$plex_server_ip = $config['network']['plex_server_ip'];
 ?>
 <html lang="en">
