@@ -2,7 +2,7 @@
 
 	$config_path = "/var/config.ini"; //path to config file, recommend you place it outside of web root
 	// Set the path for the Plex Token
-	$plexTokenCache = '/var/www/html/Network-Status-Page/assets/misc/plex_token.txt';
+	$plexTokenCache = '/var/www/assets/misc/plex_token.txt';
 	
 	Ini_Set( 'display_errors', true);
 	$config = parse_ini_file($config_path, true);
