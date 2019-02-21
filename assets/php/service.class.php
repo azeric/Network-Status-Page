@@ -21,12 +21,13 @@ class service
 		$handle = curl_init($this->url);
 		curl_setopt($handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
 		curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($handle, CURLOPT_DNS_USE_GLOBAL_CACHE, true );
 
 		$response = curl_exec($handle);
 
 		/* Check for 404 (file not found). */
 		$httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-		$error = curl_getinfo($handle);
+		$error = curl_getinfo($handle, CURLINFO_NAMELOOKUP_TIME);
 		echo "console.log(".$error.");";
 		if($httpCode == 404) {
 			return false;
