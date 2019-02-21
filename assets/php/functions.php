@@ -286,13 +286,15 @@ function staticmakeRecenlyReleased()
 	global $plex_server_ip;
 	global $plexToken ;	// You can get your Plex token using the getPlexToken() function. This will be automated once I find out how often the token has to be updated.
 	$plexNewestXML = simplexml_load_file($plex_server_ip.'/library/sections/2/recentlyAdded?X-Plex-Token='.$plexToken);
+	//https://videos.01tools.com/library/sections/2/recentlyAdded?X-Plex-Token=sLpN2seSvSVzzLyzZvCV
 	
 	$i=0;
 	for ( ; ; ) {
 		if($i==1) break;
 		$mediaKey = $plexNewestXML->Video[$i]['key'];
-		$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
-		$movieArt = $mediaXML->Video['parentThumb'];
+		//$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
+		//$movieArt = $mediaXML->Video['parentThumb'];
+		$movieArt = $plexNewestXML->Video[$i][''parentThumb''];
 		echo '<div class="col-xs-4 col-xs-4">';
 		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'"class="img-fluid" alt="...">';
 		echo '</div>';
