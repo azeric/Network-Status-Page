@@ -125,64 +125,60 @@
 			        
 				var refreshIdfastest = setInterval(function(){
 			        		//$plex_check_refresh.load('assets/php/plex_check_ajax.php');
-			        	}, 10000); // at 3, 5 seconds python was crashing.
+			        }, 10000); // at 3, 5 seconds python was crashing.
 
-			        	var refreshIdfastest = setInterval(function(){
-			            	
-			        	}, 5000); // 5 seconds
+				var refreshId30 = setInterval(function(){
+					$services_refresh.load("assets/php/services_ajax.php");
+				}, 30000); // 30 seconds
 
-			        	var refreshId30 = setInterval(function(){
-			        		$services_refresh.load("assets/php/services_ajax.php");
-			        	}, 30000); // 30 seconds
+				var refreshId60 = setInterval(function(){
+					$system_load_refresh.load('assets/php/system_load_ajax.php');
+				}, 60000); // 60 seconds
 
-			        	var refreshId60 = setInterval(function(){
-			        		$system_load_refresh.load('assets/php/system_load_ajax.php');
-			        	}, 60000); // 60 seconds
+				var refreshIdslow = setInterval(function(){
+					$disk_space_refresh.load('assets/php/disk_space_ajax.php');
+					$system_ram_refresh.load('assets/php/system_ram_ajax.php');
+					//$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php")
+				}, 300000); // 5 minutes
 
-			        	var refreshIdslow = setInterval(function(){
-			            	$disk_space_refresh.load('assets/php/disk_space_ajax.php');
-			            	$system_ram_refresh.load('assets/php/system_ram_ajax.php');
-			            	//$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php")
-			        	}, 300000); // 5 minutes
+				var refreshtopleft = setInterval(function(){
+					$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
+				}, 300000); // 5 minutes
 
-			        	var refreshtopleft = setInterval(function(){
-			            	$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
-			        	}, 300000); // 5 minutes
+				var refreshlongest = setInterval(function(){
+					$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php");
+				}, 3600000); // 1 hour
 
-			        	var refreshlongest = setInterval(function(){
-			            	$plex_movie_stats_refresh.load("assets/php/plex_movie_stats_ajax.php");
-			        	}, 3600000); // 1 hour
+				// Load these sections only if Plex has changed states
+				var theResource = "assets/misc/plexcheckfile2.txt";
 
-			        	// Load these sections only if Plex has changed states
-			        	var theResource = "assets/misc/plexcheckfile2.txt";
- 
- 						var refreshconditional = setInterval(function(){
-				          	if(localStorage["resourcemodified"]) {
-				               $.ajax({
-				                    url:theResource,
-				                    type:"head",
-				                    success:function(res,code,xhr) {
-				                         console.log("Checking Plex XML "+ localStorage["resourcemodified"] + " to "+ xhr.getResponseHeader("Last-Modified"))
-				                         if(localStorage["resourcemodified"] != xhr.getResponseHeader("Last-Modified")) getResource();
-				                    }
-				               })
+				var refreshconditional = setInterval(function(){
+					if(localStorage["resourcemodified"]) {
+						$.ajax({
+							url:theResource,
+							type:"head",
+							success:function(res,code,xhr) {
+									console.log("Checking Plex XML "+ localStorage["resourcemodified"] + " to "+ xhr.getResponseHeader("Last-Modified"))
+									if(localStorage["resourcemodified"] != xhr.getResponseHeader("Last-Modified")) getResource();
+							}
+						})
 				 
-				          } else getResource();
+				    } else getResource();
 				 
-				          function getResource() {
-				               $.ajax({
-				                    url:theResource,
-				                    type:"get",
-				                    cache:false,
-				                    success:function(res,code,xhr) {
-				                         localStorage["resourcemodified"] = xhr.getResponseHeader("Last-Modified");
-				                         $left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
-				                         $now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
-			        			   		 $now_playing_refresh.load("assets/php/now_playing_ajax.php");
-				                    }                    
-				               })
-				          }
-				}, 5000); // 5 seconds
+				function getResource() {
+					$.ajax({
+						url:theResource,
+						type:"get",
+						cache:false,
+						success:function(res,code,xhr) {
+								localStorage["resourcemodified"] = xhr.getResponseHeader("Last-Modified");
+								$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
+								$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
+								$now_playing_refresh.load("assets/php/now_playing_ajax.php");
+						}                    
+					})
+				}
+			}, 30000); // 5 seconds
 
 				// Change the size of the now playing div to match the client size every time it's resized
 				function doResizeNowPlaying() {
