@@ -18,7 +18,6 @@
 	$plex_username = $config['credentials']['plex_username'];
 	$plex_password = $config['credentials']['plex_password'];
 	$forecast_api = $config['api_keys']['forecast_api'];
-	$sabnzbd_api = $config['api_keys']['sabnzbd_api'];
 	$weather_lat = $config['misc']['weather_lat'];
 	$weather_long = $config['misc']['weather_long'];
 	$plex_port = $config['network']['plex_port'];
