@@ -4,20 +4,13 @@
 	include("functions.php");
 	include("service.class.php");
 
-	$config = parse_ini_file($config_path, true);
-	$plex_server_ip = $config['network']['plex_server_ip'];
+	//$config = parse_ini_file($config_path, true);
+	//$plex_server_ip = $config['network']['plex_server_ip'];
 ?>
 <html lang="en">
-	<script>
-	// Enable bootstrap tooltips
-	$(function ()
-	        { $("[rel=tooltip]").tooltip();
-	        });
-	</script>
 <?php 
-
 $services = array(
-	new service("Plex", $plex_server_ip."/web/index.html#!/dashboard"),
+	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard"),
 	new service("NextCloud", "https://cloud.01tools.com"),
 	new service("Home Assistant", "https://iot.01tools.com"),
 	new service("Motioneye", "https://camera.01tools.com"),
@@ -28,9 +21,7 @@ $services = array(
 	new service("PiHole", "https://dns.01tools.com/admin"),
 	new service("Traefik", "https://proxy.01tools.com:8081/"),
 	new service("Grafana", "https://dashboard.01tools.com/"),
-	new service("Trakt", "https://trakt.tv/")
-
-	
+	new service("Trakt", "https://trakt.tv/")	
 );
 ?>
 <table class ="center">
