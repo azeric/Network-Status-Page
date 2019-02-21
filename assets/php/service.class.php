@@ -16,9 +16,6 @@ class service
 	function check_port()
 	{
 		$conn = @fsockopen($this->url, 443, $errno, $errstr, 0.5);
-		echo '<script language="javascript">';
-		echo 'alert("'.$this->url.'")';
-		echo '</script>';
 		if ($conn) 
 		{
 			fclose($conn);
@@ -32,7 +29,7 @@ class service
 	{
 		$icon = '<i class="icon-' . ($this->status ? 'ok' : 'remove') . ' icon-white"></i>';
 		$btn = $this->status ? 'success' : 'warning';
-		$prefix = $this->url == "" ? '<button style="width:62px" class="btn btn-xs btn-' . $btn . ' disabled">' : '<a href="' . $this->url . '" style="width:62px" class="btn btn-xs btn-' . $btn . '">';
+		$prefix = $this->url == "" ? '<button style="width:62px" class="btn btn-xs btn-' . $btn . ' disabled">' : '<a href="https://' . $this->url . '" style="width:62px" class="btn btn-xs btn-' . $btn . '">';
 		$txt = $this->status ? 'Online' : 'Offline';
 		$suffix = $this->url == "" ? '</button>' : '</a>';
 		
