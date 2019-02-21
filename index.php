@@ -128,7 +128,7 @@
 			        	}, 10000); // at 3, 5 seconds python was crashing.
 
 			        	var refreshIdfastest = setInterval(function(){
-			            	$system_load_refresh.load('assets/php/system_load_ajax.php');
+			            	
 			        	}, 5000); // 5 seconds
 
 			        	var refreshId30 = setInterval(function(){
@@ -136,7 +136,7 @@
 			        	}, 30000); // 30 seconds
 
 			        	var refreshId60 = setInterval(function(){
-			        		
+			        		$system_load_refresh.load('assets/php/system_load_ajax.php');
 			        	}, 60000); // 60 seconds
 
 			        	var refreshIdslow = setInterval(function(){
