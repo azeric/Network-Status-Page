@@ -28,7 +28,7 @@ class service
 		/* Check for 404 (file not found). */
 		$httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
 		$error = curl_getinfo($handle, CURLINFO_NAMELOOKUP_TIME);
-		echo "console.log(".$error.");";
+		print_r($error);
 		if($httpCode == 404) {
 			return false;
 		}
