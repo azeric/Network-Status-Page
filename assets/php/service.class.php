@@ -5,7 +5,7 @@ class service
 	public $url;
 	public $status;
 	
-	function __construct($name, $url = "")
+	function __construct($name, $url = "www.google.com")
 	{
 		$this->name = $name;
 		$this->url = $url;
