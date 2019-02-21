@@ -294,7 +294,7 @@ function staticmakeRecenlyReleased()
 		//$mediaKey = $plexNewestXML->Video[$i]['key'];
 		//$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
 		//$movieArt = $mediaXML->Video['parentThumb'];
-		$movieArt = $plexNewestXML->Video[$i]['parentThumb'];
+		$movieArt = $plexNewestXML->Video[$i]['grandparentThumb'];
 		echo '<div class="col-xs-4 col-xs-4">';
 		echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt).'"class="img-fluid" alt="...">';
 		echo '</div>';
