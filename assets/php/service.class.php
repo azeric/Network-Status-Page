@@ -2,16 +2,13 @@
 class service
 {
 	public $name;
-	public $port;
 	public $url;
-	public $host;
 	public $status;
 	
-	function __construct($name, $url = "", $host = "localhost")
+	function __construct($name, $url = "")
 	{
 		$this->name = $name;
 		$this->url = $url;
-		$this->host = $host;
 		
 		$this->status = $this->check_port();
 	}
@@ -19,7 +16,7 @@ class service
 	function check_port()
 	{
 		$conn = @fsockopen($this->$url, 443, $errno, $errstr, 0.5);
-		echo $this->$url;
+		console.log( $this->$url;)
 		if ($conn) 
 		{
 			fclose($conn);
