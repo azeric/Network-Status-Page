@@ -19,7 +19,7 @@ class service
 	function check_port()
 	{
 		$handle = curl_init($this->url);
-		curl_setopt($handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4)
+		curl_setopt($handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
 		curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response = curl_exec($handle);
