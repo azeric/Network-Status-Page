@@ -32,7 +32,7 @@ class service
 
 		// curl_close($handle);
 
-		$headers=get_headers($this->url, 1);
+		$headers=@get_headers($this->url, 1);
    		if ($headers[0]!='HTTP/1.1 200 OK') return true; else return false;
 	}
 	
