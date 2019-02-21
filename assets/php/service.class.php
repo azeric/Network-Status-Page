@@ -18,7 +18,7 @@ class service
 	
 	function check_port()
 	{
-		$conn = @fsockopen($this->host, $errno, $errstr, 0.5);
+		$conn = @fsockopen($this->host, $port="443", $errno, $errstr, 0.5);
 		if ($conn) 
 		{
 			fclose($conn);
