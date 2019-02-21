@@ -18,7 +18,7 @@ class service
 	
 	function check_port()
 	{
-		$conn = @fsockopen("cloud.01tools.com", 443, $errno, $errstr, 10);
+		$conn = @fsockopen($this->$url, 443, $errno, $errstr, 0.5);
 		if ($conn) 
 		{
 			fclose($conn);
