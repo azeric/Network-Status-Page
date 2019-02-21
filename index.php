@@ -125,7 +125,7 @@
 			        
 				var refreshIdfastest = setInterval(function(){
 			        		//$plex_check_refresh.load('assets/php/plex_check_ajax.php');
-			        }, 10000); // at 3, 5 seconds python was crashing.
+			    }, 10000); // at 3, 5 seconds python was crashing.
 
 				var refreshId30 = setInterval(function(){
 					$services_refresh.load("assets/php/services_ajax.php");
@@ -180,36 +180,36 @@
 				}
 			}, 30000); // 5 seconds
 
-				// Change the size of the now playing div to match the client size every time it's resized
-				function doResizeNowPlaying() {
-					var height = 0;
-					var body = window.document.body;
-					if (window.innerHeight) {
-						height = window.innerHeight;
-					} else if (body.parentElement.clientHeight) {
-						height = body.parentElement.clientHeight;
-					} else if (body && body.clientHeight) {
-						height = body.clientHeight;
-					}
-					now_playing.style.height = ((height - now_playing.offsetTop) + "px");
-					console.log("Div resize complete. New size is: " + height);
-				};
-
-				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-					// some code..
-				} else {
-					var resizeTimer;
-					$(window).resize(function() {
-						clearTimeout(resizeTimer);
-						resizeTimer = setTimeout(doResizeNowPlaying, 100);
-					});
-
-					$(function(){
-	   					clearTimeout(resizeTimer);
-						resizeTimer = setTimeout(doResizeNowPlaying, 100);
-					});
+			// Change the size of the now playing div to match the client size every time it's resized
+			function doResizeNowPlaying() {
+				var height = 0;
+				var body = window.document.body;
+				if (window.innerHeight) {
+					height = window.innerHeight;
+				} else if (body.parentElement.clientHeight) {
+					height = body.parentElement.clientHeight;
+				} else if (body && body.clientHeight) {
+					height = body.clientHeight;
 				}
-		    	});
+				now_playing.style.height = ((height - now_playing.offsetTop) + "px");
+				console.log("Div resize complete. New size is: " + height);
+			};
+
+			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				// some code..
+			} else {
+				var resizeTimer;
+				$(window).resize(function() {
+					clearTimeout(resizeTimer);
+					resizeTimer = setTimeout(doResizeNowPlaying, 100);
+				});
+
+				$(function(){
+					clearTimeout(resizeTimer);
+					resizeTimer = setTimeout(doResizeNowPlaying, 100);
+				});
+			}
+			});
 		})(jQuery);
 		</script>
 	</head>
