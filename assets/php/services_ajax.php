@@ -3,11 +3,8 @@
 	Ini_Set( 'display_errors', true );
 	include("functions.php");
 	include("service.class.php");
-	include("serviceSAB.class.php");
 
 	$config = parse_ini_file($config_path, true);
-
-	//$wan_domain = $config['network']['wan_domain'];
 	$plex_server_ip = $config['network']['plex_server_ip'];
 ?>
 <html lang="en">
@@ -18,14 +15,6 @@
 	        });
 	</script>
 <?php 
-// $sabnzbdXML = simplexml_load_file('http://192.168.1.3:8080/api?mode=qstatus&output=xml&apikey='.$sabnzbd_api);
-
-// if (($sabnzbdXML->state) == 'Downloading'):
-// 	$timeleft = $sabnzbdXML->timeleft;
-// 	$sabTitle = 'SABnzbd ('.$timeleft.')';
-// else:
-// 	$sabTitle = 'SABnzbd';
-// endif;
 
 $services = array(
 	new service("Plex", $plex_server_ip."/web/index.html#!/dashboard"),
