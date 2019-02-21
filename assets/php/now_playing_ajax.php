@@ -9,11 +9,8 @@
 	$(function ()
 		{ $("[rel=tooltip]").tooltip();
 	});
-
-	$('.carousel').carousel({
-  		interval: 30000
-	})
 	</script>
 <?php
-makeNowPlaying();
+//makeNowPlaying();
+staticmakeRecenlyReleased();
 ?>
