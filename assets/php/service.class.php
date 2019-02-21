@@ -16,7 +16,9 @@ class service
 	function check_port()
 	{
 		$conn = @fsockopen($this->$url, 443, $errno, $errstr, 0.5);
-		console.log( $this->$url);
+		echo '<script language="javascript">';
+		echo 'alert("'.$this->$url.'")';
+		echo '</script>';
 		if ($conn) 
 		{
 			fclose($conn);
