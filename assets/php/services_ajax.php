@@ -10,7 +10,7 @@
 <html lang="en">
 <?php 
 $services = array(
-	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard"),
+	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard", "../img/plex.ico" ),
 	new service("NextCloud", "https://cloud.01tools.com"),
 	new service("Home Assistant", "https://iot.01tools.com"),
 	new service("Motioneye", "https://camera.01tools.com"),
