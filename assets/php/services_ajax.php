@@ -13,15 +13,15 @@ $services = array(
 	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard", "/assets/img/plex.ico" ),
 	new service("NextCloud", "https://cloud.01tools.com", "/assets/img/nextcloud.png"),
 	new service("Home Assistant", "https://iot.01tools.com", "/assets/img/homeassistant.png"),
-	new service("Motioneye", "https://camera.01tools.com", "/assets/img/plex.ico"),
+	new service("Motioneye", "https://camera.01tools.com", "/assets/img/motioneye.png"),
 	new service("ruTorrent", "https://lw815.ultraseedbox.com/~azeric/rutorrent/", "/assets/img/rutorrent.png"),
-	new service("Sonarr","https://tv.01tools.com", "../img/plex.ico"),
-	new service("Radarr", "https://movies.01tools.com", "../img/plex.ico"),
-	new service("Jackett", "https://indexer.01tools.com", "../img/plex.ico"),
-	new service("PiHole", "https://dns.01tools.com/admin", "../img/plex.ico"),
-	new service("Traefik", "https://proxy.01tools.com:8081/", "../img/plex.ico"),
-	new service("Grafana", "https://graphs.01tools.com/", "../img/plex.ico"),
-	new service("Trakt", "https://trakt.tv/dashboard", "../img/plex.ico")	
+	new service("Sonarr","https://tv.01tools.com", "/assets/img/sonarr.ico"),
+	new service("Radarr", "https://movies.01tools.com", "/assets/img/radarr.png"),
+	new service("Jackett", "https://indexer.01tools.com", "/assets/img/jackett.png"),
+	new service("PiHole", "https://dns.01tools.com/admin", "/assets/img/pihole.png"),
+	new service("Traefik", "https://proxy.01tools.com:8081/", "/assets/img/traefik.png"),
+	new service("Grafana", "https://graphs.01tools.com/", "/assets/img/grafana.png"),
+	new service("Trakt", "https://trakt.tv/dashboard", "/assets/img/trakt.ico")	
 );
 ?>
 <table class ="center">
