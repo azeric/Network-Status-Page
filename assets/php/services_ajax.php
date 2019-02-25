@@ -11,7 +11,7 @@
 <?php 
 $services = array(
 	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard", "/assets/img/plex.ico" ),
-	new service("NextCloud", "https://cloud.01tools.com", "../img/plex.ico"),
+	new service("NextCloud", "https://cloud.01tools.com", "/assets/img/nextcloud.ico"),
 	new service("Home Assistant", "https://iot.01tools.com", "../img/plex.ico"),
 	new service("Motioneye", "https://camera.01tools.com", "../img/plex.ico"),
 	new service("ruTorrent", "https://lw815.ultraseedbox.com/~azeric/rutorrent/", "../img/plex.ico"),
@@ -27,7 +27,7 @@ $services = array(
 <table class ="center">
 	<?php foreach($services as $service){ ?>
 		<tr>
-			<td style="text-align: right; padding-right:5px;" class="exoextralight"><img src="<?php echo $service->icon; ?>"/><?php echo $service->name; ?></td>
+			<td style="text-align: right; padding-right:5px;" class="exoextralight"><img src="<?php echo $service->icon; ?>" width="14px" height="14px" /><?php echo $service->name; ?></td>
 			<td style="text-align: left;"><?php echo $service->makeButton(); ?></td>
 		</tr>
 	<?php }?>
