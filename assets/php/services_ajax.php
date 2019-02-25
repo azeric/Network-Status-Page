@@ -10,7 +10,7 @@
 <html lang="en">
 <?php 
 $services = array(
-	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard", "../img/plex.ico" ),
+	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard", "/assets/img/plex.ico" ),
 	new service("NextCloud", "https://cloud.01tools.com", "../img/plex.ico"),
 	new service("Home Assistant", "https://iot.01tools.com", "../img/plex.ico"),
 	new service("Motioneye", "https://camera.01tools.com", "../img/plex.ico"),
@@ -27,7 +27,7 @@ $services = array(
 <table class ="center">
 	<?php foreach($services as $service){ ?>
 		<tr>
-			<td style="text-align: right; padding-right:5px;" class="exoextralight"><img src=<?php $service->icon; ?>></img><?php echo $service->name; ?></td>
+			<td style="text-align: right; padding-right:5px;" class="exoextralight"><img src=<?php $service->icon; ?>/><?php echo $service->name; ?></td>
 			<td style="text-align: left;"><?php echo $service->makeButton(); ?></td>
 		</tr>
 	<?php }?>
