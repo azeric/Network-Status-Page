@@ -3,12 +3,14 @@ class service
 {
 	public $name;
 	public $url;
+	public $icon;
 	public $status;
 	
-	function __construct($name, $url)
+	function __construct($name, $url, $icon)
 	{
 		$this->name = $name;
 		$this->url = $url;
+		$this->icon = $icon;
 		
 		$this->status = $this->check_port();
 	}
