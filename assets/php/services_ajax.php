@@ -20,7 +20,7 @@ $services = array(
 	new service("Jackett", "https://indexer.01tools.com"),
 	new service("PiHole", "https://dns.01tools.com/admin"),
 	new service("Traefik", "https://proxy.01tools.com:8081/"),
-	new service("Grafana", "https://dashboard.01tools.com/"),
+	new service("Grafana", "https://graphs.01tools.com/"),
 	new service("Trakt", "https://trakt.tv/dashboard")	
 );
 ?>
