@@ -15,14 +15,30 @@ class service
 	
 	function check_port()
 	{
-		$conn = @fsockopen($this->url, 443, $errno, $errstr, 0.5);
-		if ($conn) 
-		{
-			fclose($conn);
-			return true;
-		}
-		else
+		// $conn = @fsockopen($this->url, 443, $errno, $errstr, 0.5);
+		// if ($conn) 
+		// {
+		// 	fclose($conn);
+		// 	return true;
+		// }
+		// else
+		// 	return false;
+		$handle = curl_init($this->url);
+		curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+
+		$response = curl_exec($handle);
+
+		/* Check for 404 (file not found). */
+		$httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+		if($httpCode == 404) {
 			return false;
+		}
+		return true;
+
+		curl_close($handle);
+
+		// $headers=get_headers($this->url, 1);
+   		// if ($headers[0]!='HTTP/1.1 200 OK') return true; else return false;
 	}
 	
 	function makeButton()

@@ -21,7 +21,7 @@ $services = array(
 	new service("PiHole", "dns.01tools.com/admin"),
 	new service("Traefik", "proxy.01tools.com:8081/"),
 	new service("Grafana", "dashboard.01tools.com/"),
-	new service("Trakt", "trakt.tv/")	
+	new service("Trakt", "trakt.tv/dashboard")	
 );
 ?>
 <table class ="center">
