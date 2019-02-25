@@ -11,10 +11,10 @@
 <?php 
 $services = array(
 	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard", "/assets/img/plex.ico" ),
-	new service("NextCloud", "https://cloud.01tools.com", "/assets/img/nextcloud.ico"),
-	new service("Home Assistant", "https://iot.01tools.com", "../img/plex.ico"),
-	new service("Motioneye", "https://camera.01tools.com", "../img/plex.ico"),
-	new service("ruTorrent", "https://lw815.ultraseedbox.com/~azeric/rutorrent/", "../img/plex.ico"),
+	new service("NextCloud", "https://cloud.01tools.com", "/assets/img/nextcloud.png"),
+	new service("Home Assistant", "https://iot.01tools.com", "/assets/img/homeassistant.png"),
+	new service("Motioneye", "https://camera.01tools.com", "/assets/img/plex.ico"),
+	new service("ruTorrent", "https://lw815.ultraseedbox.com/~azeric/rutorrent/", "/assets/img/rutorrent.png"),
 	new service("Sonarr","https://tv.01tools.com", "../img/plex.ico"),
 	new service("Radarr", "https://movies.01tools.com", "../img/plex.ico"),
 	new service("Jackett", "https://indexer.01tools.com", "../img/plex.ico"),
