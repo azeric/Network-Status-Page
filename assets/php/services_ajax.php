@@ -27,7 +27,7 @@ $services = array(
 <table class ="center">
 	<?php foreach($services as $service){ ?>
 		<tr>
-			<td style="text-align: right; padding-right:5px;" class="exoextralight"><img src="<?php echo $service->icon; ?>" style="width:14px" /><?php echo $service->name; ?></td>
+			<td style="text-align: right; padding-right:5px;" class="exoextralight"><?php echo $service->name; ?><img src="<?php echo $service->icon; ?>" style="width:14px" /></td>
 			<td style="text-align: left;"><?php echo $service->makeButton(); ?></td>
 		</tr>
 	<?php }?>
