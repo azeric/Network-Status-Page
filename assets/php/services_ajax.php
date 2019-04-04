@@ -13,6 +13,7 @@ $services = array(
 	new service("Plex", "https://videos.01tools.com/web/index.html#!/dashboard", "/assets/img/plex.ico" ),
 	new service("NextCloud", "https://cloud.01tools.com", "/assets/img/nextcloud.png"),
 	new service("Home Assistant", "https://iot.01tools.com", "/assets/img/homeassistant.png"),
+	new service("Node Red", "https://automate.01tools.com", "/assets/img/homeassistant.png"),
 	new service("Motioneye", "https://camera.01tools.com", "/assets/img/motioneye.png"),
 	new service("ruTorrent", "https://lw815.ultraseedbox.com/~azeric/rutorrent/", "/assets/img/rutorrent.png"),
 	new service("Sonarr","https://tv.01tools.com", "/assets/img/sonarr.ico"),
