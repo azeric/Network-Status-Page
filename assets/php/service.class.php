@@ -36,6 +36,10 @@ class service
 		if($httpCode == 404) {
 			return false;
 		}
+		if($httpCode == '')
+		{
+			return false;
+		}
 		return true;
 
 		curl_close($handle);
