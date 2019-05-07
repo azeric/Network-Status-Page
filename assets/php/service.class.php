@@ -11,24 +11,14 @@ class service
 		$this->name = $name;
 		$this->url = $url;
 		$this->icon = $icon;
-		
 		$this->status = $this->check_port();
 	}
 	
 	function check_port()
 	{
-		// $conn = @fsockopen($this->url, 443, $errno, $errstr, 0.5);
-		// if ($conn) 
-		// {
-		// 	fclose($conn);
-		// 	return true;
-		// }
-		// else
-		// 	return false;
 		$handle = curl_init($this->url);
 		curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 3); 
-
 		$response = curl_exec($handle);
 
 		/* Check for 404 (file not found). */
@@ -36,16 +26,18 @@ class service
 		if($httpCode == 404) {
 			return false;
 		}
+		/* Check if timeout occured */
 		if($httpCode == '')
 		{
 			return false;
 		}
-		return true;
+		else if ($httpCode == '200' | $httpCode == '302')
+		{
+			return true;
+		}
+		return false;
 
 		curl_close($handle);
-
-		// $headers=get_headers($this->url, 1);
-   		// if ($headers[0]!='HTTP/1.1 200 OK') return true; else return false;
 	}
 	
 	function makeButton()
@@ -58,6 +50,5 @@ class service
 		
 		return $prefix . $icon . " " . $txt . $suffix;
 	}
-
 }
 ?>
