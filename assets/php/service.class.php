@@ -27,6 +27,7 @@ class service
 		// 	return false;
 		$handle = curl_init($this->url);
 		curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 3); 
 
 		$response = curl_exec($handle);
 
