@@ -23,7 +23,7 @@ class service
 
 		/* Check for 404 (file not found). */
 		$httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-		if($httpCode == 404) {
+		if($httpCode == 404 | $httpCode == 502) {
 			return false;
 		}
 		/* Check if timeout occured */
@@ -31,11 +31,7 @@ class service
 		{
 			return false;
 		}
-		else if ($httpCode == '200' | $httpCode == '302')
-		{
-			return true;
-		}
-		return false;
+		return true;
 
 		curl_close($handle);
 	}
