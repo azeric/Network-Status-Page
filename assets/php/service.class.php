@@ -33,7 +33,8 @@ class service
 		}
 		return true;
 
-		curl_close($handle);
+		//curl_close($handle);
+		$curl->close();
 	}
 	
 	function makeButton()

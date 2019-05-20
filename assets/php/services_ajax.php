@@ -3,9 +3,6 @@
 	Ini_Set( 'display_errors', true );
 	include("functions.php");
 	include("service.class.php");
-
-	//$config = parse_ini_file($config_path, true);
-	//$plex_server_ip = $config['network']['plex_server_ip'];
 ?>
 <html lang="en">
 <?php 
