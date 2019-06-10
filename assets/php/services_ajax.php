@@ -15,6 +15,7 @@ $services = array(
 	new service("Motioneye", "https://camera.01tools.com", "/assets/img/motioneye.png"),
 	new service("Node Red", "https://automate.01tools.com", "/assets/img/node-red.png"),
 	new service("NextCloud", "https://cloud.01tools.com", "/assets/img/nextcloud.png"),	
+	new service("Bitwarden", "https://pass.01tools.com/", "/assets/img/bitwarden.png")
 	new service("Jackett", "https://indexer.01tools.com", "/assets/img/jackett.png"),
 	new service("PiHole", "https://dns.01tools.com/admin", "/assets/img/pihole.png"),
 	new service("Traefik", "https://proxy.01tools.com/", "/assets/img/traefik.png"),
