@@ -250,7 +250,8 @@
 							// Check to see if we're on a mobile device because overflow scrolling sucks on them.
 							// If we're on a cellphone disable the overflow:auto feature.
 							if ( $detect->isMobile() ):
-								echo '>';
+								//echo '>';
+								echo ' style="overflow:auto;">';
 							else:
 								echo ' style="overflow:auto;">';
 							endif;
@@ -263,8 +264,7 @@
 						<?php echo '<div class="col-md-3"';
 						// Only apply padding on top of this column if its not on a mobile device
 						if ( $detect->isMobile() ):
-							//echo '>';
-							echo ' style="padding-top: 20px;">';
+							echo '>';
 						else:
 							echo ' style="padding-top: 20px;">';
 						endif;?>
