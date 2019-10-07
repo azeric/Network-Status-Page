@@ -11,7 +11,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Server</title>
+		<title>01Tools</title>
 		<meta name="author" content="dash">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Le styles -->
@@ -263,7 +263,8 @@
 						<?php echo '<div class="col-md-3"';
 						// Only apply padding on top of this column if its not on a mobile device
 						if ( $detect->isMobile() ):
-							echo '>';
+							//echo '>';
+							echo ' style="padding-top: 20px;">';
 						else:
 							echo ' style="padding-top: 20px;">';
 						endif;?>
