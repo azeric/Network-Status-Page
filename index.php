@@ -246,15 +246,7 @@
 						<div class="col-md-6">
 							<div id="now_playing_title"></div>
 							
-							<?php	echo '<div id="now_playing"';
-							// Check to see if we're on a mobile device because overflow scrolling sucks on them.
-							// If we're on a cellphone disable the overflow:auto feature.
-							if ( $detect->isMobile() ):
-								//echo '>';
-								echo ' style="overflow:auto;">';
-							else:
-								echo ' style="overflow:auto;">';
-							endif;
+							<?php	echo '<div id="now_playing" style="overflow:auto;">';
 								echo '</div>';?>
 
 							<hr class="visible-xs">
