@@ -250,7 +250,7 @@
 								echo '</div>';?>
 
 							<hr class="visible-xs">
-							<hr>
+							<!--<hr>-->
 						</div>
 						<!-- Right sidebar -->
 						<?php echo '<div class="col-md-3"';
