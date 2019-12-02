@@ -50,8 +50,11 @@
 			}
 			img {
 				width: 100%;
+			}
+			img.img-fluid {
 				height: 219px;
 			}
+			
 		</style>
 		<link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon.png" />
 		<link rel="shortcut icon" href="assets/ico/favicon.ico">
