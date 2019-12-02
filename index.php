@@ -49,7 +49,8 @@
 				font-family:"exoregular";
 			}
 			img {
-				width: 219.59px;
+				width: 100%;
+				height: 219px;
 			}
 		</style>
 		<link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon.png" />
