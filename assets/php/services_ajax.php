@@ -19,8 +19,7 @@ $services = array(
 	new service("Duplicati", "https://backup.01tools.com/", "/assets/img/duplicati.png"),
 	new service("Jackett", "https://indexer.01tools.com", "/assets/img/jackett.png"),
 	new service("PiHole", "https://dns.01tools.com/admin", "/assets/img/pihole.png"),
-	new service("Traefik", "https://proxy.01tools.com/", "/assets/img/traefik.png"),
-	new service("Grafana", "https://graphs.01tools.com/", "/assets/img/grafana.png")
+	new service("Traefik", "https://proxy.01tools.com/", "/assets/img/traefik.png")
 );
 ?>
 <table class ="center">
