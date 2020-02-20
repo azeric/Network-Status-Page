@@ -1,6 +1,5 @@
 This is copied from Ryan Christensen's original project for his OSX server
 
-
 Network Status Page - 0.2.7
 ===================
 Dashboard for home servers running a small suite of media and other applications
