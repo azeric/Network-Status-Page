@@ -4,8 +4,6 @@ Network Status Page - 0.2.7
 ===================
 Dashboard for home servers running a small suite of media and other applications
 
-[Example Site][ls]
-
 [ls]: https://nicko88.com/
 
 
