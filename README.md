@@ -4,8 +4,6 @@ Network Status Page - 0.2.7
 ===================
 Dashboard for home servers running a small suite of media and other applications
 
-[ls]: https://nicko88.com/
-
 ###Features
 ---------------
 * Responsive web design viewable on desktop, tablet and mobile web browsers 
