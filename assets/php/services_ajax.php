@@ -20,9 +20,8 @@ $services = array(
 	new service("Jackett ", "https://indexer.01tools.com", "/assets/img/jackett.png"),
 	new service("PiHole ", "https://dns.01tools.com/admin", "/assets/img/pihole.png"),
 	new service("Traefik ", "https://proxy.01tools.com/", "/assets/img/traefik.png"),
-	new service("pfsense ", "http://10.0.0.1/", "/assets/img/pfsense.png")
-	new service("ProxMox ", "https://192.168.8.201:8006", "/assets/img/pfsense.png")
-	
+	new service("pfsense ", "http://10.0.0.1/", "/assets/img/pfsense.png"),
+	new service("ProxMox ", "https://192.168.8.201:8006", "/assets/img/pfsense.png")	
 );
 ?>
 <table class ="center">
