@@ -384,7 +384,7 @@ function plexMovieStats()
 	$host = "https://plex.tv/users/sign_in.json";
 	$token = curl_init($host);
 	curl_setopt($token, $plex_username, $plex_password);
-	curl_setopt($token, CURLOPT_HTTPHEADER, array(‘X-Plex-Client-Identifier: 7608cf36-742b-11e4-8b39-00089bd210a2’, ‘X-Plex-Device: Ubuntu’, ‘X-Plex-Device-Name: OptiPlex’, ‘X-Plex-Product: plexWatchWeb’, ‘X-Plex-Version: 1.0’));
+	curl_setopt($token, CURLOPT_HTTPHEADER, array('X-Plex-Client-Identifier: 7608cf36-742b-11e4-8b39-00089bd210a2', 'X-Plex-Device: Ubuntu', 'X-Plex-Device-Name: OptiPlex', 'X-Plex-Product: plexWatchWeb', 'X-Plex-Version: 1.0'));
 	curl_setopt($token, CURLOPT_TIMEOUT, 30);
 	curl_setopt($token, CURLOPT_POST, 1);
 	curl_setopt($token, CURLOPT_RETURNTRANSFER, TRUE);
