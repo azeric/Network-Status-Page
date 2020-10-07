@@ -400,7 +400,7 @@ function plexMovieStats()
 	
 	echo '<div class="exolight">';
 	echo '<h4 class="exoextralight">XML Token: '.$myPlex.'</h4>';
-	echo '<h4 class="exoextralight">Plex Token: '.$json.'</h4>';
+	echo '<h4 class="exoextralight">Plex Token: '.$myPlexArray[3].'</h4>';
 	//echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
 	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
 	echo '</div>';
