@@ -371,9 +371,17 @@ function makeNowPlaying()
 function plexMovieStats()
 {
 	global $plex_server_ip;
+	global $plexToken;	
 	global $plex_username;
-	global $plexToken;
-	global $plexToken;	// You can get your Plex token using the getPlexToken() function. This will be automated once I find out how often the token has to be updated.
+	global $plex_password;
+	//To test manually:
+	// curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "erc_c@hotmail.com"":""password" -X POST https://my.plexapp.com/users/sign_in.xml
+
+	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
+    $myPlex_xml = simplexml_load_string($myPlex);
+    $token = $myPlex_xml['authentication-token'];
+	
+
 	$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
 	$total_movies = count($plexNewMoviesXML -> Video);
 	$plexNewTVXML = simplexml_load_file($plex_server_ip.'/library/sections/2/all?X-Plex-Token='.$plexToken);
@@ -382,7 +390,7 @@ function plexMovieStats()
 	echo '<div class="exolight">';
 	echo $plexToken;
 	echo $plex_username;
-	echo '<h4 class="exoextralight">Plex Token: '.$plexToken.'</h4>';
+	echo '<h4 class="exoextralight">Plex Token: '.$token.'</h4>';
 	//echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
 	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
 	echo '</div>';
