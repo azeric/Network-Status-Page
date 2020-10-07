@@ -378,22 +378,11 @@ function plexMovieStats()
 	// curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "erc_c@hotmail.com"":""password" -X POST https://my.plexapp.com/users/sign_in.xml
 		
 	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
-    $myPlexArray = explode(" ", $myPlex);
+	$myPlexArray = explode(" ", $myPlex);
+	$myPlex_xml = simplexml_load_string($myPlex);
 	$token = $myPlex_xml['authentication-token'];
 	
-	$host = "https://plex.tv/users/sign_in.json";
-	$token = curl_init($host);
-	curl_setopt($token, $plex_username, $plex_password);
-	curl_setopt($token, CURLOPT_HTTPHEADER, array('X-Plex-Client-Identifier: 7608cf36-742b-11e4-8b39-00089bd210a2', 'X-Plex-Device: Ubuntu', 'X-Plex-Device-Name: OptiPlex', 'X-Plex-Product: plexWatchWeb', 'X-Plex-Version: 1.0'));
-	curl_setopt($token, CURLOPT_TIMEOUT, 30);
-	curl_setopt($token, CURLOPT_POST, 1);
-	curl_setopt($token, CURLOPT_RETURNTRANSFER, TRUE);
-	$json = curl_exec($token);
-	$arreglo_json = json_decode($json, true);
-	curl_close($token);
-	
-
-	$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
+		$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
 	$total_movies = count($plexNewMoviesXML -> Video);
 	$plexNewTVXML = simplexml_load_file($plex_server_ip.'/library/sections/2/all?X-Plex-Token='.$plexToken);
 	$total_tv = count($plexNewTVXML -> Directory);
@@ -401,6 +390,7 @@ function plexMovieStats()
 	echo '<div class="exolight">';
 	echo '<h4 class="exoextralight">XML Token: '.$myPlex.'</h4>';
 	echo '<h4 class="exoextralight">Plex Token: '.$myPlexArray[4].'</h4>';
+	echo '<h4 class="exoextralight">Plex Token: '.$myPlexArray_xml.'</h4>';
 	//echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
 	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
 	echo '</div>';
