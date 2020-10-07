@@ -381,7 +381,7 @@ function plexMovieStats()
 	$myPlexArray = explode(" ", $myPlex);
 	$chunks = array_chunk(preg_split('/=/', $myPlexArray), 2);
 	$result = array_combine(array_column($chunks, 0), array_column($chunks, 1));
-	$myPlex_xml = simplexml_load_file($myPlex);
+	$myPlex_xml = simplexml_load_string($myPlex);
 	$token = $myPlex_xml['authentication-token'];
 	
 	$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
