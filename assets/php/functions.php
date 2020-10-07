@@ -381,7 +381,7 @@ function plexMovieStats()
 	$myPlexArray = explode(" ", $myPlex);
 	$chunks = array_chunk(preg_split('/=/', $myPlexArray), 2);
 	$result = array_combine(array_column($chunks, 0), array_column($chunks, 1));
-	$myPlex_xml = simplexml_load_string($myPlex);
+	$myPlex_xml = simplexml_load_file($myPlex);
 	$token = $myPlex_xml['authentication-token'];
 	
 	$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
@@ -394,6 +394,8 @@ function plexMovieStats()
 	echo '<h4 class="exoextralight">XML Token: '.$myPlexArray[1].'</h4>';
 	echo '<h4 class="exoextralight">Plex Token: '.$chunks.'</h4>';
 	echo $myPlex_xml;
+	echo 'Test';
+	print_r($myPlex_xml);
 	echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
 	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
 	echo '</div>';
