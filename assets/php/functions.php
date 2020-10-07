@@ -390,6 +390,7 @@ function plexMovieStats()
 	$total_tv = count($plexNewTVXML -> Directory);
 	
 	echo '<div class="exolight">';
+	echo '<h4 class="exoextralight">XML Token: '.$myPlex.'</h4>';
 	echo '<h4 class="exoextralight">XML Token: '.$myPlexArray.'</h4>';
 	echo '<h4 class="exoextralight">Plex Token: '.$chunks.'</h4>';
 	echo '<h4 class="exoextralight">Plex Token: '.$token.'</h4>';
