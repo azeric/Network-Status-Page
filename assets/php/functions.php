@@ -379,7 +379,7 @@ function plexMovieStats()
 		
 	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
 	$myPlexArray = explode(" ", $myPlex);
-	$chunks = array_chunk(preg_split('/(=|,)/', $input), 2);
+	$chunks = array_chunk(preg_split('/(=|,)/', $myPlexArray), 2);
 	$result = array_combine(array_column($chunks, 0), array_column($chunks, 1));
 	$myPlex_xml = simplexml_load_string($myPlex);
 	$token = $myPlex_xml['authentication-token'];
