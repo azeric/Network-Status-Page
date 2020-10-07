@@ -371,6 +371,7 @@ function makeNowPlaying()
 function plexMovieStats()
 {
 	global $plex_server_ip;
+	global $plex_username;
 	global $plexToken;	// You can get your Plex token using the getPlexToken() function. This will be automated once I find out how often the token has to be updated.
 	$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
 	$total_movies = count($plexNewMoviesXML -> Video);
