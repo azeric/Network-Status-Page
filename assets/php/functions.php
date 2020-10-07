@@ -387,8 +387,6 @@ function plexMovieStats()
 	$total_tv = count($plexNewTVXML -> Directory);
 	
 	echo '<div class="exolight">';
-	echo '<h4 class="exoextralight">XML Token: '.$myPlex.'</h4>';
-	print_r($myPlex_xml['authenticationToken']->getName());
 	echo '<h4 class="exoextralight">Token: '.$myPlex_xml['authenticationToken'].'</h4>';
 	echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
 	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
@@ -464,17 +462,11 @@ function getPlexToken()
 	//To test manually:
 	// curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "erc_c@hotmail.com"":""password" -X POST https://my.plexapp.com/users/sign_in.xml
 
-	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
-    $myPlex_xml = simplexml_load_string($myPlex);
-    $token = $myPlex_xml['authentication-token'];
+	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: dashboard1" -H "X-Plex-Product: Dashboard" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
+	$myPlex_xml = simplexml_load_string($myPlex);
+    $token = $myPlex_xml['authenticationToken'];
 	return $token;
 }
-
-// function getDir($b)
-// {
-//    $dirs = array('N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N');
-//    return $dirs[round($b/45)];
-// }
 
 function makeWeatherSidebar()
 {
