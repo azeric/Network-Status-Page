@@ -378,9 +378,6 @@ function plexMovieStats()
 	// curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "erc_c@hotmail.com"":""password" -X POST https://my.plexapp.com/users/sign_in.xml
 		
 	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: dashboard1" -H "X-Plex-Product: My Cool Plex App" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
-	$myPlexArray = explode(" ", $myPlex);
-	$chunks = array_chunk(preg_split('/=/', $myPlexArray), 2);
-	$result = array_combine(array_column($chunks, 0), array_column($chunks, 1));
 	$myPlex_xml = simplexml_load_string($myPlex);
 	$token = $myPlex_xml['authentication-token'];
 	
@@ -391,8 +388,7 @@ function plexMovieStats()
 	
 	echo '<div class="exolight">';
 	echo '<h4 class="exoextralight">XML Token: '.$myPlex.'</h4>';
-	print_r($myPlex_xml['authentcationToken']);
-	print_r($myPlex_xml);
+	print_r($myPlex_xml['authenticationToken']);
 	echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
 	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
 	echo '</div>';
