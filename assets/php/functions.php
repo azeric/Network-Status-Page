@@ -378,6 +378,8 @@ function plexMovieStats()
 	$total_tv = count($plexNewTVXML -> Directory);
 	
 	echo '<div class="exolight">';
+	echo $plexToken;
+	echo $plex_username;
 	echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
 	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
 	echo '</div>';

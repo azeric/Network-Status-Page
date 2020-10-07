@@ -254,6 +254,7 @@
 								echo '</div>';?>
 
 							<hr class="visible-xs">
+							
 							<!--<hr>-->
 						</div>
 						<!-- Right sidebar -->
