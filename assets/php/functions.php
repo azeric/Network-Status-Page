@@ -378,7 +378,7 @@ function plexMovieStats()
 	// curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "erc_c@hotmail.com"":""password" -X POST https://my.plexapp.com/users/sign_in.xml
 
 	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
-    $myPlex_xml = simplexml_load_string($myPlex);
+    $myPlexArray = explode("" ", $myPlex);
     $token = $myPlex_xml['authentication-token'];
 	
 
@@ -391,7 +391,7 @@ function plexMovieStats()
 	echo $plexToken;
 	echo $plex_username;
 	echo '<h4 class="exoextralight">XML Token: '.$myPlex.'</h4>';
-	echo '<h4 class="exoextralight">Plex Token: '.$myPlex[3].'</h4>';
+	echo '<h4 class="exoextralight">Plex Token: '.$myPlexArray[3].'</h4>';
 	//echo '<h4 class="exoextralight">New Movies: '.$total_movies.'</h4>';
 	echo '<h4 class="exoextralight">New TV Shows: '.$total_tv.'</h4>';
 	echo '</div>';
