@@ -377,7 +377,7 @@ function plexMovieStats()
 	//To test manually:
 	// curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "erc_c@hotmail.com"":""password" -X POST https://my.plexapp.com/users/sign_in.xml
 		
-	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: dashboard1" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
+	$myPlex = shell_exec('curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: dashboard1" -H "X-Plex-Product: My Cool Plex App" -u "'.$plex_username.'"":""'.$plex_password.'" -X POST https://my.plexapp.com/users/sign_in.xml 2> /dev/null');
 	$myPlexArray = explode(" ", $myPlex);
 	$chunks = array_chunk(preg_split('/(=|,)/', $myPlexArray), 2);
 	$result = array_combine(array_column($chunks, 0), array_column($chunks, 1));
