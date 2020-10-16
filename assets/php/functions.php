@@ -372,8 +372,6 @@ function plexMovieStats()
 {
 	global $plex_server_ip;
 	global $plexToken;	
-	global $plex_username;
-	global $plex_password;
 	//To test manually:
 	// curl -H "Content-Length: 0" -H "X-Plex-Client-Identifier: my-app" -u "erc_c@hotmail.com"":""password" -X POST https://my.plexapp.com/users/sign_in.xml
 	$plexNewMoviesXML = simplexml_load_file($plex_server_ip.'/library/sections/1/all?X-Plex-Token='.$plexToken);
