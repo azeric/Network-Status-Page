@@ -21,7 +21,7 @@ $services = array(
 	new service("PiHole ", "https://dns.01tools.com/admin", "/assets/img/pihole.png"),
 	new service("Traefik ", "https://proxy.01tools.com/", "/assets/img/traefik.png"),
 	new service("Unifi ", "https://network.01tools.com/", "/assets/img/unifi.png"),
-	new service("ProxMox ", "https://192.168.8.201:8006", "/assets/img/proxmox.png")	
+	new service("ProxMox ", "https://vm.01tools.com", "/assets/img/proxmox.png")	
 );
 ?>
 <table class ="center">
