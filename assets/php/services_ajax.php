@@ -22,7 +22,7 @@ $services = array(
 	new service("Traefik ", "https://proxy.01tools.com/", "/assets/img/traefik.png"),
 	new service("Unifi ", "https://network.01tools.com/", "/assets/img/unifi.png"),
 	new service("ProxMox ", "https://vm.01tools.com", "/assets/img/proxmox.png"),
-	new service("Barn Router ", "https://174.44.96.250:8443/Main_Login.asp", "/assets/img/asus.jpg")	
+	#new service("Barn Router ", "https://174.44.96.250:8443/Main_Login.asp", "/assets/img/asus.jpg")	
 	#https://barn.asuscomm.com:8443/main_login.asp  	
 );
 ?>

@@ -56,7 +56,6 @@
 			}
 			
 		</style>
-		<link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon.png" />
 		<link rel="shortcut icon" href="assets/ico/favicon.ico">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="//code.jquery.com/jquery.js"></script>
