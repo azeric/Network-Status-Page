@@ -10,6 +10,7 @@ $services = array(
 	new service("Plex ", "https://videos.01tools.com/web/index.html#!/dashboard", "/assets/img/plex.ico" ),
 	new service("Sonarr ","https://tv.01tools.com", "/assets/img/sonarr.ico"),
 	new service("Radarr ", "https://movies.01tools.com", "/assets/img/radarr.png"),
+	new service("Lidarr ", "https://music.01tools.com", "/assets/img/lidarr.svg"),
 	new service("Deluge ", "https://azeric.lw815.usbx.me/deluge", "/assets/img/deluge.png"),
 	new service("Home Assistant ", "https://iot.01tools.com", "/assets/img/homeassistant.png"),
 	new service("Motioneye ", "https://camera.01tools.com", "/assets/img/motioneye.png"),
