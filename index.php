@@ -284,13 +284,17 @@
 								</div>
 							</div>
 							<div class="panel panel-default">
-							<div class="panel-heading">
-									<h4 class="panel-title exoextralight">
-										Plex library
-									</h4>
-									</div>	
-									<div id="plex_movie_stats"></div>
-						</div>
+								<div class="panel-heading">
+									<h4 class="panel-title exoextralight">Plex library</h4>
+								</div>	
+								<div id="plex_movie_stats"></div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title exoextralight">Goodreads</h4>
+								</div>	
+								<div id="plex_movie_stats"></div>
+							</div>
 					</div>
 				</div>
 			</div>
