@@ -294,7 +294,7 @@
 								
 								<div>
 									<h3 style="margin: 4px 0 10px; font-weight: normal; text-align: center">
-									<h4>2021 Reading Challenge</h4>
+									<h4 class="exoextralight">2021 Reading Challenge</h4>
 									</h3>
 										<div class="challengePic">
 										<a rel="nofollow" href="https://www.goodreads.com/challenges/11650-2021-reading-challenge"><img alt="2021 Reading Challenge" style="float:left; margin-right: 10px; border: 0 none" src="https://images.gr-assets.com/challenges/1608245803p2/11650.jpg" /></a>
