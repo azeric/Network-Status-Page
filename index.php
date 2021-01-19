@@ -262,7 +262,7 @@
 							echo ' style="padding-top: 20px;">';
 						endif;?>
 							<!-- Server info -->
-							<div class="panel panel-default">
+						<div class="panel panel-default">
 							<div class="panel-heading">
 									<h4 class="panel-title exoextralight">
 										Server Info
@@ -292,38 +292,34 @@
 								</div>	
 								<!--*************Goodreads***************-->
 								
-<div>
-    <h3 style="margin: 4px 0 10px; font-weight: normal; text-align: center">
-      <a style="text-decoration: none; font-family:georgia,serif;font-style:italic; font-size: 1.1em" rel="nofollow" href="https://www.goodreads.com/challenges/11650-2021-reading-challenge">2021 Reading Challenge</a>
-    </h3>
-        <div class="challengePic">
-          <a rel="nofollow" href="https://www.goodreads.com/challenges/11650-2021-reading-challenge"><img alt="2021 Reading Challenge" style="float:left; margin-right: 10px; border: 0 none" src="https://images.gr-assets.com/challenges/1608245803p2/11650.jpg" /></a>
-        </div>
-      <div>
-        <a rel="nofollow" href="https://www.goodreads.com/user/show/11098370-eric">Eric</a> has
-             read 1 book toward
-             his goal of
-             45 books.
-      </div>
-      <div style="width: 100px; margin: 4px 5px 5px 0; float: left; border: 1px solid #382110; height: 8px; overflow: hidden; background-color: #FFF">
-        <div style="width: 2%; background-color: #D7D2C4; float: left"><span style="visibility:hidden">hide</span></div>
-      </div>
-      <div style="font-family: arial, verdana, helvetica, sans-serif;font-size:90%">
-        <a rel="nofollow" href="https://www.goodreads.com/user_challenges/26505049">1 of 45 (2%)</a>
-      </div>
-        <div style="text-align: right;">
-          <a style="text-decoration: none; font-size: 10px;" rel="nofollow" href="https://www.goodreads.com/user_challenges/26505049">view books</a>
-        </div>
-  </div>
-	<script src="https://www.goodreads.com/user_challenges/widget/11098370-eric?challenge_id=11650&v=2"></script>
-
-
 								<div>
-								
-								
+									<h3 style="margin: 4px 0 10px; font-weight: normal; text-align: center">
+									<a style="text-decoration: none; font-family:georgia,serif;font-style:italic; font-size: 1.1em" rel="nofollow" href="https://www.goodreads.com/challenges/11650-2021-reading-challenge">2021 Reading Challenge</a>
+									</h3>
+										<div class="challengePic">
+										<a rel="nofollow" href="https://www.goodreads.com/challenges/11650-2021-reading-challenge"><img alt="2021 Reading Challenge" style="float:left; margin-right: 10px; border: 0 none" src="https://images.gr-assets.com/challenges/1608245803p2/11650.jpg" /></a>
+										</div>
+									<div>
+										<a rel="nofollow" href="https://www.goodreads.com/user/show/11098370-eric">Eric</a> has
+											read 1 book toward
+											his goal of
+											45 books.
+									</div>
+									<div style="width: 100px; margin: 4px 5px 5px 0; float: left; border: 1px solid #382110; height: 8px; overflow: hidden; background-color: #FFF">
+										<div style="width: 2%; background-color: #D7D2C4; float: left"><span style="visibility:hidden">hide</span></div>
+									</div>
+									<div style="font-family: arial, verdana, helvetica, sans-serif;font-size:90%">
+										<a rel="nofollow" href="https://www.goodreads.com/user_challenges/26505049">1 of 45 (2%)</a>
+									</div>
+									<div style="text-align: right;">
+										<a style="text-decoration: none; font-size: 10px;" rel="nofollow" href="https://www.goodreads.com/user_challenges/26505049">view books</a>
+									</div>
 								</div>
+								<script src="https://www.goodreads.com/user_challenges/widget/11098370-eric?challenge_id=11650&v=2"></script>
+						
+								
 							</div>
-					</div>
+						</div>
 				</div>
 			</div>
 		</div>
