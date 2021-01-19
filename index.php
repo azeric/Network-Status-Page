@@ -48,9 +48,6 @@
 			.exoregular {
 				font-family:"exoregular";
 			}
-			img {
-				width: 100%;
-			}
 			img.img-fluid {
 				height: 219px;
 			}
