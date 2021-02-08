@@ -300,6 +300,8 @@
 										#echo fgets($file);
 										$rawdate = fgets($file);
 										echo $rawdate;
+
+										if(date('m/d') < $rawdate)
 									?>
 								</div>										
 							</div>
