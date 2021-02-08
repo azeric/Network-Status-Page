@@ -302,7 +302,7 @@
 										echo $rawdate;
 										echo date("m-d-Y");
 
-										if(date('m-d') <= $rawdate)
+										if(date("m-d-Y") <= $rawdate)
 									?>
 								</div>										
 							</div>
