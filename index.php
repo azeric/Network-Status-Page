@@ -297,8 +297,9 @@
 									<h5 class="exoextralight">Main Backup</h5>
 									<?php
 										$file = fopen("/media/datadrive/configs/mainBackupStatus.txt","r");
-										echo fgets($file);
-										fclose($file);
+										#echo fgets($file);
+										$rawdate = fgets($file);
+										echo $rawdate;
 									?>
 								</div>										
 							</div>
