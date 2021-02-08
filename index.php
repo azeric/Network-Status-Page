@@ -299,7 +299,7 @@
 										$file = fopen("/media/datadrive/configs/mainBackupStatus.txt","r");
 										#echo fgets($file);
 										$rawdate = fgets($file);
-										echo "<h5 class='exoextralight'> $rawdate </h5>";
+										echo "<h5 class='exoextralight'>Last Backup: $rawdate </h5>";
 										if(date("m-d-Y") > $rawdate)
 											echo "<h4 style='background-color: red'>LATE</h4>";
 									?>
