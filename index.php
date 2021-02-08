@@ -300,6 +300,7 @@
 										#echo fgets($file);
 										$rawdate = fgets($file);
 										echo $rawdate;
+										echo date(m-d-Y);
 
 										if(date('m-d') <= $rawdate)
 									?>
