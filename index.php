@@ -303,7 +303,7 @@
 										echo date("m-d-Y");
 
 										if(date("m-d-Y") <= $rawdate)
-											echo "LATE";
+											echo "<h4 style='background-color: red'>LATE</h4>";
 									?>
 								</div>										
 							</div>
