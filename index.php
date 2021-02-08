@@ -303,6 +303,7 @@
 										echo date("m-d-Y");
 
 										if(date("m-d-Y") <= $rawdate)
+											echo "LATE";
 									?>
 								</div>										
 							</div>
