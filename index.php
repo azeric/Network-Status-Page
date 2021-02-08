@@ -286,22 +286,23 @@
 								</div>	
 								<div id="plex_movie_stats"></div>
 							</div>
+							<!--*************Backups***************-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title exoextralight">Goodreads</h4>
+									<h4 class="panel-title exoextralight">Backup Status</h4>
 								</div>	
-								<!--*************Backups***************-->
+								
 								<div>
 									<h3 style="margin: 4px 0 10px; font-weight: normal; text-align: center">
-									<h4 class="exoextralight">Backup Status</h4>
+									<h5 class="exoextralight">Main Backup</h5>
 									<?php
 										$file = fopen("/media/datadrive/configs/mainBackupStatus.txt","r");
 										echo fgets($file);
 										fclose($file);
 									?>
-								</div>
-								<!--***********End Backups*********************-->										
+								</div>										
 							</div>
+							<!--***********End Backups*********************-->
 						</div>
 				</div>
 			</div>
