@@ -299,17 +299,6 @@
 										echo fgets($file);
 										fclose($file);
 									?>
-									</h3>
-										<div class="challengePic">
-										<a rel="nofollow" href="https://www.goodreads.com/challenges/11650-2021-reading-challenge"><img alt="2021 Reading Challenge" style="float:left; margin-right: 10px; border: 0 none" src="https://images.gr-assets.com/challenges/1608245803p2/11650.jpg" /></a>
-										</div>
-									<div>
-										<a rel="nofollow" href="https://www.goodreads.com/user/show/11098370-eric">Eric</a> has
-											read 1 book toward
-											his goal of
-											45 books.
-									</div>
-									
 								</div>
 								<!--***********End Backups*********************-->										
 							</div>
