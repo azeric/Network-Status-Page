@@ -9,7 +9,7 @@
  */
 
 .clearfix {
-  transform: scale();
+  *zoom: 1;
 }
 
 .clearfix:before,
