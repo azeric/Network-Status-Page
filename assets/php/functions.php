@@ -524,7 +524,7 @@ function makeWeatherSidebar()
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$minutelySummary.'</h5>';
 	echo '<h4 class="exoregular">Next 24 Hours</h4>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$hourlySummary.'</h5>';
-	echo '<p class="text-right no-link-color"><small><a href="http://forecast.io/#/f/',$forecastLat,',',$forecastLong,'">Forecast.io</a></small></p>';
+	echo '<p class="text-right no-link-color" style="margin-bottom: 0px;"><small><a href="http://forecast.io/#/f/',$forecastLat,',',$forecastLong,'">Forecast.io</a></small></p>';
 }
 
 function printGraphs()
