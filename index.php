@@ -297,12 +297,12 @@
 									<!--<h5 class="exoextralight">Main Backup</h5>-->
 									<?php
 										$file = fopen("/media/datadrive/configs/mainBackupStatus.txt","r");
-										#echo fgets($file);
 										$rawdate = fgets($file);
-										echo "<h5 class='exoextralight'>Last Main Backup: $rawdate </h5>";
-										echo "<h5 class='exoextralight'>Last Portable Backup: $rawdate </h5>";
 										if(date("m-d-Y") > $rawdate)
 											echo "<h4 style='background-color: red'>LATE</h4>";
+										echo "<h5 class='exoextralight'>Last Main Backup: $rawdate </h5>";
+										echo "<h5 class='exoextralight'>Last Portable Backup: $rawdate </h5>";
+										
 									?>
 								</div>										
 							</div>
@@ -311,7 +311,5 @@
 				</div>
 			</div>
 		</div>
-		<!-- Invisible php div-->
-		<!--<div id="plex_check"></div>-->
-		</body>
+	</body>
 </html>
