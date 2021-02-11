@@ -11,6 +11,5 @@
 	});
 	</script>
 <?php
-//makeNowPlaying();
 staticmakeRecenlyReleased();
 ?>

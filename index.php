@@ -53,7 +53,7 @@
 			}
 			
 		</style>
-		<link rel="shortcut icon" href="assets/ico/favicon.ico">
+		<link rel="shortcut icon" href="assets/img/favicon.ico">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
