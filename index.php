@@ -298,11 +298,12 @@
 									<?php
 										$file = fopen("/media/datadrive/configs/mainBackupStatus.txt","r");
 										$rawdate = fgets($file);
+										$currdate = date("m-d-Y");
 										if(date("m-d-Y") > $rawdate)
 											echo "<h4 style='background-color: red'>LATE</h4>";
 										echo "<h5 class='exoextralight'>Last Main Backup: $rawdate </h5>";
 										echo "<h5 class='exoextralight'>Last Portable Backup:  </h5>";
-										echo "<h5 class='exoextralight'>Current Date:  date('m-d-Y')</h5>";
+										echo "<h5 class='exoextralight'>Current Date:  $currdate</h5>";
 										
 									?>
 								</div>										
