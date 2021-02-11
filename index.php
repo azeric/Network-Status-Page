@@ -301,7 +301,7 @@
 										if(date("m-d-Y") > $rawdate)
 											echo "<h4 style='background-color: red'>LATE</h4>";
 										echo "<h5 class='exoextralight'>Last Main Backup: $rawdate </h5>";
-										echo "<h5 class='exoextralight'>Last Portable Backup: $rawdate </h5>";
+										echo "<h5 class='exoextralight'>Last Portable Backup:  </h5>";
 										
 									?>
 								</div>										
