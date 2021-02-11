@@ -1,6 +1,6 @@
 This is copied from Ryan Christensen's original project for his OSX server
 
-Network Status Page - 0.2.7
+Network Status Page - 0.3
 ===================
 Dashboard for home servers running a small suite of media and other applications
 
@@ -39,11 +39,3 @@ Dashboard for home servers running a small suite of media and other applications
 [fcAPI]: https://developer.forecast.io
 
 
-###Optional
----------------
-* A few functions are written to be used with the following software but they are optional:
-	* [SABnzbd+][sab]
-	* [pfSense][pfs]
-
-[sab]: http://sabnzbd.org
-[pfs]: http://www.pfsense.org
