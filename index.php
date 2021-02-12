@@ -224,7 +224,7 @@
 							<div class="panel panel-default">
 							<div class="panel-heading">
 									<h4 class="panel-title exoextralight">
-										Weather test
+										Weather
 									</h4>
 							</div>		
 								<div class="panel-body">	
@@ -298,6 +298,7 @@
 									<?php
 										$file = fopen("/media/datadrive/configs/mainBackupStatus.txt","r");
 										$rawdate = fgets($file);
+										date_default_timezone_set('America/New_York');
 										$currdate = date("m-d-Y");
 										if(date("m-d-Y") > $rawdate)
 											echo "<h4 style='background-color: red'>LATE</h4>";
