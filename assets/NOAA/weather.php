@@ -26,13 +26,13 @@ Read more about how to setup this script in readme.md.
  **/
 
 // Enter the full file path to your cache data folder. Make sure the folder is writable.
-define( 'CACHEDATA_FILE_PATH', '' );
+define( 'CACHEDATA_FILE_PATH', '/media/datadrive/server/cache/' );
 
 // Enter your website URL. This is sent in the header of the request to NOAA for data to identify your script.
-define( 'WEBSITE_URL', '' );
+define( 'WEBSITE_URL', 'https://01tools.com' );
 
 // Enter your email address. This is sent in the header of the request to NOAA for data so they can contact you if they notice  problems.
-define( 'EMAIL_ADDRESS', '' );
+define( 'EMAIL_ADDRESS', 'erc_c@hotmail.com' );
 
 // Enter the cache duration, in seconds. Suggested: 3600.
 define( 'WEATHER_CACHE_DURATION', 3600 );
@@ -50,7 +50,7 @@ define( 'SCRIPT_VERSION', '4.0.4' );
  **/
 
 // Set the timezone
-date_default_timezone_set( 'UTC' );
+date_default_timezone_set( 'America/New_York' );
 
 // Defines the URL that the weather will be grabbed from
 function noaa_weather_grabber_weather_url( $stationId ) {
@@ -104,7 +104,7 @@ function noaa_weather_grabber_get_feed( $weather_url ) {
 	}
 }
 
-// Sanatize the weather information and add it to a variable
+// Sanitize the weather information and add it to a variable
 function noaa_weather_grabber_get_standard_forecast( $raw_weather, $stationId ) {
 	$initialTemp = $raw_weather->properties->temperature->value;
 	if ( strlen( trim( $initialTemp )) > 0 ) {
