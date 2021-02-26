@@ -5,8 +5,11 @@
 
 	include("assets/php/functions.php");
 	include('assets/php/Mobile_Detect.php');
+	//include('assets/php/weather.php');
+	//include('assets/php/weather_forecast.php');
 
 	$detect = new Mobile_Detect;
+	$weather = noaa_weather_grabber( 'KPOU', 'yes' );
 ?>
 <html lang="en">
 	<head>
@@ -310,6 +313,8 @@
 								</div>										
 							</div>
 							<!--***********End Backups*********************-->
+
+
 						</div>
 				</div>
 			</div>

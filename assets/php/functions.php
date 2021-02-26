@@ -1,5 +1,8 @@
 <?php
 
+	include('weather.php');
+	include('weather_forecast.php');
+
 	$config_path = "/var/config.ini"; //path to config file, recommend you place it outside of web root
 	// Set the path for the Plex Token
 	$plexTokenCache = '/var/www/html/assets/misc/plex_token.txt';
@@ -17,7 +20,7 @@
 	$ssh_key = $config['credentials']['ssh_key'];
 	$plex_username = $config['credentials']['plex_username'];
 	$plex_password = $config['credentials']['plex_password'];
-	$forecast_api = $config['api_keys']['forecast_api'];
+	//$forecast_api = $config['api_keys']['forecast_api'];
 	$weather_lat = $config['misc']['weather_lat'];
 	$weather_long = $config['misc']['weather_long'];
 	$plex_port = $config['network']['plex_port'];
@@ -303,71 +306,6 @@ function staticmakeRecenlyReleased()
 
 }
 
-function makeNowPlaying()
-{
-	global $plex_server_ip;
-	global $plex_port;
-	global $plexToken;	// You can get your Plex token using the getPlexToken() function. This will be automated once I find out how often the token has to be updated.
-	$plexSessionXML = simplexml_load_file($plex_server_ip.'/status/sessions?X-Plex-Token='.$plexToken);
-
-	if (count($plexSessionXML->Video) == 0):
-		staticmakeRecenlyReleased();
-	else:
-		$i = 0; // Initiate and assign a value to i & t
-		$t = 0;
-		echo '<div class="col-md-10 col-sm-offset-1">';
-		foreach ($plexSessionXML->Video as $sessionInfo):
-			$t++;
-		endforeach;
-		foreach ($plexSessionXML->Video as $sessionInfo):
-			$mediaKey=$sessionInfo['key'];
-			$playerTitle=$sessionInfo->Player['title'];
-			$mediaXML = simplexml_load_file($plex_server_ip.$mediaKey.'?X-Plex-Token='.$plexToken);
-			$type=$mediaXML->Video['type'];
-			echo '<div class="thumbnail">';
-			$i++; // Increment i every pass through the array
-			if ($type == "movie"):
-				// Build information for a movie
-				$movieArt = $mediaXML->Video['thumb'];
-				echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$movieArt) . '" alt="...">';
-				echo '<div class="caption">';
-				$movieTitle = $mediaXML->Video['title'];
-				//echo '<h2 class="exoextralight">'.$movieTitle.'</h2>';
-				if (strlen($mediaXML->Video['summary']) < 800):
-					$movieSummary = $mediaXML->Video['summary'];
-				else:
-					$movieSummary = substr_replace($mediaXML->Video['summary'], '...', 800);
-				endif;
-
-				echo '<p class="exolight" style="margin-top:5px;">'.$movieSummary.'</p>';
-			else:
-				// Build information for a tv show
-				$tvArt = $mediaXML->Video['grandparentThumb'];
-				echo '<img src="plex.php?img=' . urlencode($plex_server_ip.$tvArt) . '" alt="...">';
-				echo '<div class="caption">';
-				$showTitle = $mediaXML->Video['grandparentTitle'];
-				$episodeTitle = $mediaXML->Video['title'];
-				$episodeSummary = $mediaXML->Video['summary'];
-				$episodeSeason = $mediaXML->Video['parentIndex'];
-				$episodeNumber = $mediaXML->Video['index'];
-				//echo '<h2 class="exoextralight">'.$showTitle.'</h2>';
-				echo '<h3 class="exoextralight" style="margin-top:5px;">Season '.$episodeSeason.'</h3>';
-				echo '<h4 class="exoextralight" style="margin-top:5px;">E'.$episodeNumber.' - '.$episodeTitle.'</h4>';
-				echo '<p class="exolight">'.$episodeSummary.'</p>';
-			endif;
-			echo "</div>";
-			echo "</div>";
-			// Should we make <hr>? Only if there is more than one video and it's not the last thumbnail created.
-			if (($i > 0) && ($i < $t)):
-				echo '<hr>';
-			else:
-				// Do nothing
-			endif;
-		endforeach;
-		echo '</div>';
-	endif;
-}
-
 function plexMovieStats()
 {
 	global $plex_server_ip;
@@ -447,7 +385,6 @@ function printBandwidthBar($percent, $name = "", $Mbps)
 	echo '</div>';
 }
 
-
 function getPlexToken()
 {
     global $plex_username;
@@ -463,42 +400,46 @@ function getPlexToken()
 
 function makeWeatherSidebar()
 {
-    global $weather_lat;
-	global $weather_long;
-	global $forecast_api;
-	$forecastExcludes = '?exclude=daily,flags&units=us';
-	// Kennington, London
-	$forecastLat = $weather_lat;
-	$forecastLong = $weather_long;
-	$currentForecast = json_decode(file_get_contents('https://api.forecast.io/forecast/'.$forecast_api.'/'.$forecastLat.','.$forecastLong.$forecastExcludes));
+    //global $weather_lat;
+	//global $weather_long;
+	//global $forecast_api;
 
-	$currentSummary = $currentForecast->currently->summary;
-	$currentSummaryIcon = $currentForecast->currently->icon;
-	$currentTemp = round($currentForecast->currently->temperature);
-	$currentWindSpeed = round($currentForecast->currently->windSpeed);
-	if ($currentWindSpeed > 0) {
-		$currentWindBearing = $currentForecast->currently->windBearing;
-	}
-	$minutelySummary = $currentForecast->minutely->summary;
-	$hourlySummary = $currentForecast->hourly->summary;
+	//$currentForecast = json_decode(file_get_contents('https://api.forecast.io/forecast/'.$forecast_api.'/'.$forecastLat.','.$forecastLong.$forecastExcludes));
+	//NOAA Weather
+	$weather = noaa_weather_grabber( 'KPOU', 'yes' );
+	$weather_forecast = noaa_weather_grabber_forecast('ALY/67,12', 'yes');
+	$currentTemp = $weather->temp;
+	$currentSummary = $weather->condition;
+	$currentSummaryIcon = $weather->imgCode;
+	//echo $currentSummaryIcon;
+	$minutelySummary = $weather_forecast->shortForecast;
+	$hourlySummary = $weather_forecast->longForecast;
+	
 	// If there are alerts, make the alerts variables
-	if (isset($currentForecast->alerts)) {
-		$alertTitle = $currentForecast->alerts[0]->title;
-		$alertExpires = $currentForecast->alerts[0]->expires;
-		$alertDescription = $currentForecast->alerts[0]->description;
-		$alertUri = $currentForecast->alerts[0]->uri;
-	}
-	// Make the array for weather icons
+	// if (isset($currentForecast->alerts)) {
+	// 	$alertTitle = $currentForecast->alerts[0]->title;
+	// 	$alertExpires = $currentForecast->alerts[0]->expires;
+	// 	$alertDescription = $currentForecast->alerts[0]->description;
+	// 	$alertUri = $currentForecast->alerts[0]->uri;
+	// }
+	// Make the array for weather icons https://www.alessioatzeni.com/meteocons/
 	$weatherIcons = [
-		'clear-day' => 'B',
-		'clear-night' => 'C',
-		'rain' => 'R',
-		'snow' => 'W',
-		'sleet' => 'X',
-		'wind' => 'F',
-		'fog' => 'L',
-		'cloudy' => 'N',
-		'partly-cloudy-day' => 'H',
+		'day/skc' => 'B',
+		'night/skc' => '2',
+		'day/rain' => 'R',
+		'night/rain' => '8',
+		'day/snow' => 'W',
+		'night/snow' => '#',
+		'day/sleet' => 'X',
+		'night/sleet' => '$',
+		'day/wind_skc' => 'F',
+		'night/wind_skc' => 'F',
+		'day/wind_skt' => 'F',
+		'night/wind_skt' => 'F',
+		'day/fog' => 'L',
+		'day/ovc' => 'N',
+		'day/sct' => 'H',
+		'night/sct' => '3',
 		'partly-cloudy-night' => 'I',
 	];
 	$weatherIcon = $weatherIcons[$currentSummaryIcon];
@@ -516,15 +457,12 @@ function makeWeatherSidebar()
 	echo '<li><h4 class="exoregular" style="margin:0px;padding-right:10px;width:80px">'.$currentSummary.'</h4></li>';
 	echo '</ul></li>';
 	echo '</ul>';
-	//if ($currentWindSpeed > 0) {
-	//	$direction = getDir($currentWindBearing);
-	//	echo '<h4 class="exoextralight" style="margin-top:0px">Wind: '.$currentWindSpeed.' mph ('.$direction.')</h4>';
-	//}
 	echo '<h4 class="exoregular">Next Hour</h4>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$minutelySummary.'</h5>';
 	echo '<h4 class="exoregular">Next 24 Hours</h4>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$hourlySummary.'</h5>';
-	echo '<p class="text-right no-link-color" style="margin-bottom: 0px;"><small><a href="http://forecast.io/#/f/',$forecastLat,',',$forecastLong,'">Forecast.io</a></small></p>';
+	echo '<p class="text-right no-link-color" style="margin-bottom: 0px;"><small><a href="https://forecast.weather.gov/MapClick.php?lat=41.6181&lon=-73.7257">Weather.gov</a></small></p>';
+	//echo '<p class="text-right no-link-color" style="margin-bottom: 0px;"><small><a href="https://api.weather.gov/gridpoints/ALY/67,12/forecast">Extended</a></small></p>';
 }
 
 function printGraphs()

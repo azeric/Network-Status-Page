@@ -46,11 +46,6 @@ define( 'SCRIPT_VERSION', '4.0.4' );
 // See readme.md for more information about including this in your script.
 
 
-/**
- * Functions
- * This area sets up some functions used throughout the script.
- **/
-
 // Set the timezone
 date_default_timezone_set( 'America/New_York' );
 
